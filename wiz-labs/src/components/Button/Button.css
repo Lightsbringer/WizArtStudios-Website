@@ -1,0 +1,25 @@
+.button-container {
+    position: absolute;
+    padding: 1em;
+    z-index: 800;
+}
+
+.button-services {
+    top: 50%;
+    left: 10%;
+}
+
+.button-team {
+    top: 60%;
+    left: 25%;
+}
+
+.button-contact-us {
+    top: 60%;
+    left: 30%;
+}
+
+.button-portfolio {
+    top: 70%;
+    left: -35%;
+}
