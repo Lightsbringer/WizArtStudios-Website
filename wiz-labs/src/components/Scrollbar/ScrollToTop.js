@@ -28,6 +28,7 @@ const ScrollToTop = () => {
         <IconButton
             display={visible ? 'block' : 'none'}
             position="fixed"
+            zIndex={'50'}
             background='secondary'
             border='2px solid black'
             right='3%'

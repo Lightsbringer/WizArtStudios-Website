@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Image, Box, Flex, VStack, Text, List, ListItem, ListIcon, Button, ButtonGroup, IconButton, Heading } from '@chakra-ui/react';
-import { FaDiscord, FaTwitter, FaLinkedin, FaInstagram, FaTiktok, FaHatWizard } from 'react-icons/fa';
+import { FaDiscord, FaTwitter, FaLinkedin, FaInstagram, FaTiktok } from 'react-icons/fa';
 import { GiCrystalWand } from 'react-icons/gi';
 import { useParams } from 'react-router-dom';
 import Aos from 'aos';
@@ -24,6 +24,10 @@ export default function TeamMemberPage(props) {
         // method 2: redirect to home immediately
     }, [urlProps])
 
+    useEffect(() => {
+        Aos.init({duration: 1500});
+      }, [])
+
     const handleSocialMediaClick = (url) => {
         window.open(url, '_blank', 'noopener,noreferrer');
     }
@@ -37,15 +41,17 @@ export default function TeamMemberPage(props) {
         <Box
             data-aos="fade-up" 
             w={['md', '3xl', '5xl', '7xl', '9xl']}
-            margin='0 auto'
+            minHeight={'90vh'}
+            margin='3rem auto'
             background='background'
             variant='div'>
             {currentTeamMember ? 
                 <Flex
                     display='flex'
+                    height='100%'
                     flex-direction='column'
                     justifyContent='space-evenly'
-                    m='5rem auto'
+                    m='3rem auto'
                     alignItems={{base: 'center', sm: 'center', md: 'center', lg: 'top', xl: 'top'}}
                     flexWrap={'wrap'}
                     flexDirection={{base: 'column', sm: 'column', md: 'column', lg: 'row'}}>
@@ -55,10 +61,11 @@ export default function TeamMemberPage(props) {
                             borderRadius={'50px'}
                             cursor={'pointer'}
                             objectFit='contain'
-                            src={require(`../../assets/wiz.png`)}
+                            src={require(`../../assets/${currentTeamMember.photoUrl}`)}
                             alt='WizArts logo'
+                            mb={'3rem'}
                         />
-                        <Button color='white' variant='solid' background={"primary"} onClick={handleScheduleMeetingClick}>Schedule a meeting</Button>
+                        <Button color='white' variant='solid' background={"primary"} onClick={handleScheduleMeetingClick} _hover={{background: 'white', transition: '0.4s', color: 'black'}}>Schedule a meeting</Button>
                         <Box>
                             <ButtonGroup>
                                 {currentTeamMember.discord ? 
@@ -126,7 +133,7 @@ export default function TeamMemberPage(props) {
                             {currentTeamMember.description}
                         </Text>
                     </VStack>
-                    <VStack width={{base: '70%', lg: '30%', xl: '30%'}}>
+                    <VStack width={{base: '70%', lg: '50%', xl: '50%'}}>
                         <Text 
                             textAlign={'center'}
                             fontSize={['md', 'lg', '2xl', '2xl', '2xl']}
@@ -135,8 +142,9 @@ export default function TeamMemberPage(props) {
                             Skills
                         </Text>
                         <List>
-                            {currentTeamMember.skills.split(';').map((skill) => (
+                            {currentTeamMember.skills.split(';').map((skill, i) => (
                                 <ListItem
+                                    key={i}
                                     textAlign={'left'}
                                     width='70%'
                                     m='0 auto'

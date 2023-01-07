@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
     Text, 
     Stack, 
@@ -18,7 +18,10 @@ export default function Home(props) {
     return (
         <Box 
             variant='div'
+            ref={props.innerRef}
             display={'flex'}
+            zIndex={21}
+            position="relative"
             height={80 * windowHeight / 100}
             alignItems='center'
             justifyContent='space-evenly'>
@@ -33,7 +36,12 @@ export default function Home(props) {
                     <Heading fontSize={['md', 'lg', '2xl', '3xl', '4xl']} align={'left'} color='primary' mb={4}>{portfolioData.motto}</Heading>
                     <Text fontSize={['sm', 'md', 'xl', 'xl', '2xl']}  align={'left'} color='secondary'>{portfolioData.hook}</Text>
                     <Box alignContent={'left'}>
-                        <Button background='primary' color='white'>Learn More</Button>
+                        <Button 
+                            background='primary' 
+                            color='white'
+                            _hover={{background: 'white', transition: '0.4s', color: 'black'}}>
+                                Learn More
+                        </Button>
                     </Box>
                 </Stack>
                 <Stack width='40%'>

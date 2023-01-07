@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import TeamMember from './TeamMember';
-import { Image, Box, Text, Heading, Flex, IconButton, Container } from '@chakra-ui/react';
+import { Image, Box, Text, Heading, Flex, IconButton, useBreakpointValue } from '@chakra-ui/react';
 import { FaDiscord, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import Floating from '../Animations/Floating';
 import Aos from 'aos';
@@ -9,7 +9,7 @@ import './Team.css';
 
 const styles = {
   card: {
-    border: '2px solid #ecc49c',
+    border: '3px solid #ecc49c',
   }
 };
 
@@ -17,7 +17,9 @@ export default function Team(props) {
   const portfolioData = props.data;
   // const circleDegressArray = ['270', '315', '0', '45', '90', '135', '180', '225'];
   const circleDegressArray = ['0', '60', '120', '180', '240', '300'];
-  const windowHeight = window.innerHeight;
+  const avatarIconTranslationValue = useBreakpointValue({ base: '200px', sm: '280px', md: '300px', lg: '400px' , xl: '400px' });
+  const circleContainerWidth = useBreakpointValue({ base: '200px', sm: '125px', md: '175px', lg: '225px' , xl: '250px' });
+  const isMobileDevice = useBreakpointValue({base: false, sm: true, md: true, lg: false, xl: false});
 
   useEffect(() => {
     Aos.init({duration: 1500});
@@ -27,7 +29,9 @@ export default function Team(props) {
     <Box 
       ref={props.innerRef}
       data-aos="fade-up" 
-      w={'100%'}
+      w={['md', 'lg', '100%', '100%', '100%']}
+      position="relative"
+      zIndex={'23'}
       height={'7xl'}
       m={'0 auto'}>
         <Flex 
@@ -40,7 +44,7 @@ export default function Team(props) {
           <Box>
             <Heading fontSize={['md', 'lg', '2xl', '3xl', '4xl']} align={'center'} color='primary' mb={4} >Meet Our Team</Heading>
               <Text 
-                fontSize={{sm: 'md', md:'lg', lg: 'lg'}} 
+                fontSize={['sm', 'sm', 'xl', 'xl', 'xl']}
                 align={'left'} 
                 color='secondary'>
                   {portfolioData.team_description}
@@ -49,7 +53,7 @@ export default function Team(props) {
                 <div className='circle'>
                   <Floating enabled={true}>
                     <Image
-                      height={['md', 'lg', 'lg', 'xl', 'xl']}
+                      height={['sm', 'md', 'md', 'xl', 'xl']}
                       m={'-150px auto'}
                       objectFit='contain' 
                       borderRadius='100px' 
@@ -57,28 +61,33 @@ export default function Team(props) {
                   </Floating>
                 </div>
                 {portfolioData.theTeam.map((teamMember, index) => (
-                  <div key={index} className={`circle deg-${circleDegressArray[index]}`}>
+                  <div key={index} className={`circle deg-${circleDegressArray[index]}`}
+                    style={{
+                      transform: `rotate(${circleDegressArray[index]}deg) translate(${avatarIconTranslationValue}) rotate(-${circleDegressArray[index]}deg)`,
+                      width: circleContainerWidth
+                    }}>
                     <TeamMember value={teamMember.name}>
                       <Box borderRadius='100px'>
                         <Image 
-                          height='auto' w={['150px', '175px', '200px', '225px', '250px']} 
+                          h={['100px', '125px', '175px', '225px', '250px']}
+                          w={['100px', '125px', '175px', '225px', '250px']} 
                           objectFit='contain' 
-                          borderRadius='51%' 
+                          borderRadius='50%' 
                           src={require(`../../assets/${teamMember.photoUrl}`)}/>
                       </Box>
 
                       <Box sx={styles.card} 
-                        h={['150px', '175px', '200px', '225px', '250px']}
-                        w={['150px', '175px', '200px', '225px', '250px']}
+                        h={['100px', '125px', '175px', '225px', '250px']}
+                        w={['100px', '125px', '175px', '225px', '250px']}
                         borderRadius='51%' 
                         borderColor='primary' 
                         display='flex' 
                         flexDirection='column' 
                         justifyContent='center' 
                         alignItems={'center'}>
-                        <Heading as='h4' size='md' color='primary'>{teamMember.name}</Heading>
-                        <Text fontSize='xs' p='0 0.5rem' color='secondary'>{teamMember.short_description}</Text>
-                        <Text fontSize='xs' p='0 0.5rem' color='secondary'>{teamMember.role}</Text>
+                        <Heading as='h4' size='md' color='white'>{teamMember.name}</Heading>
+                        <Text fontSize='sm' p='0 0.5rem' color='white' fontStyle={'italic'}>{teamMember.role}</Text>
+                        {!isMobileDevice ? <Text fontSize='sm' p='0 1rem' color='secondary'>{teamMember.short_description}</Text> : null}
                         <Flex direction='row' align='center' justify='center' gap='2'>
                           {
                             teamMember.discord ? 

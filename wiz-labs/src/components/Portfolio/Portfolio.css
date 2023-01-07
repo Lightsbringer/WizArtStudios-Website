@@ -1,0 +1,65 @@
+.image-container:hover .image {
+    opacity: 0.45;
+    transform: scale(1.15);
+}
+
+.image-container:hover .shrink-border {
+    opacity: 1;
+}
+
+.image-description:hover {
+    /* the height */
+  --h: 1.2em;
+
+  line-height: var(--h);
+  color: #0000;
+  text-shadow: 
+    0 var(--_t,var(--h)) #fff,
+    0 0 var(--_c, #000);
+  background: 
+    linear-gradient(#1095c1 0 0) 
+    bottom/100% var(--_d, 0) no-repeat;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.shrink-border {
+    background: transparent;
+    color: #1b1b20;
+}
+.shrink-border:hover {
+    background-color: lighten(rgb(50,50,60), 10%);
+    box-shadow: none;
+}
+.shrink-border::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #1b1b20;
+    transition: opacity 0.3s, border 0.3s;
+}
+.shrink-border:hover::before {
+    opacity: 0;
+}
+.shrink-border::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 3px solid #e6e6e6;
+    opacity: 0;
+    z-index: -1;
+    transform: scaleX(1.1) scaleY(1.3);
+    transition: transform 0.5s, opacity 0.4s;
+}
+.shrink-border:hover::after {
+    opacity: 1;
+    transform: scaleX(1) scaleY(1);
+}
+

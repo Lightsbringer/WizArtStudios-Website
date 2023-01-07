@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo} from 'react';
+import React, {useState, useMemo} from 'react';
 import { useNavigate } from "react-router-dom";
 
 export default function TeamMember(props) {
@@ -28,6 +28,7 @@ export default function TeamMember(props) {
           top: '0',
           transform: backRotateY,
           transformStyle: 'preserve-3d',
+          transitionDelay: '0.1s',
           transition: '0.6s',
           ...back,
         },
@@ -50,6 +51,7 @@ export default function TeamMember(props) {
           transform: frontRotateY,
           transformStyle: 'preserve-3d',
           transition: '0.6s',
+          transitionDelay: '0.1s',
           zIndex: '2',
           border: 'none',
           ...front,

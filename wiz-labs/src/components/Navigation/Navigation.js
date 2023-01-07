@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
     Box,
     Button,
     ButtonGroup,
-    Container,
     Image,
     Flex,
-    HStack,
     VStack,
     IconButton,
     useBreakpointValue,
     useColorModeValue,
-    useColorMode,
     Drawer,
     DrawerContent,
     DrawerBody,
@@ -19,16 +16,18 @@ import {
     DrawerOverlay
   } from '@chakra-ui/react';
 import { FiMenu } from 'react-icons/fi';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Navigation.css';
   
 export default function Navigation(props) {
     const { data , scrollTo} = props;
+    const { pathname } = useLocation();
     const isDesktop = useBreakpointValue({ base: false, lg: true , xl: true });
     const isTablet = useBreakpointValue({base: false, md: true});
-    const isMobile = useBreakpointValue({base: false, sm: true});
-    const { colorMode, toggleColorMode } = useColorMode();
+    // const isMobile = useBreakpointValue({base: false, sm: true});
+    // const { colorMode, toggleColorMode } = useColorMode();
     const [showDrawer, setShowDrawer] = useState(false);
+    const isHome = pathname === '/';
     const navigate = useNavigate();
 
     const handleOpenDrawer = () => {
@@ -39,12 +38,21 @@ export default function Navigation(props) {
         setShowDrawer(false);
     }
 
+    const navigateToHomeSection = (e) => {
+        setTimeout(() => {
+            scrollTo(e);
+        }, 500);
+        navigate('/'); 
+    }
+
     return (
         <Box as="nav"
             display="flex"
             flexDirection="row"
             alignItems={"center"}
             justifyContent="center" 
+            zIndex={'20'}
+            position="relative"
             background={"darkBackground"}
             p={{base: '2', md: '4', lg: '6', xl: '6'}}
             boxShadow={useColorModeValue('sm', 'sm-dark')}>
@@ -66,9 +74,22 @@ export default function Navigation(props) {
                     />
                         <ButtonGroup variant="link" spacing="8">
                             {data.navLinks.map((item) => (
-                                <Button size='lg' key={item} onClick={(e) => scrollTo(e)} value={item} color='white'>{item}</Button>
+                                <Button 
+                                    size='lg' 
+                                    key={item} 
+                                    onClick={(e) => isHome ? scrollTo(e) : navigateToHomeSection(e)} 
+                                    value={item} 
+                                    color='white'>
+                                        {item}
+                                </Button>
                             ))}
-                            <Button color='white' variant='solid' background={"primary"}>Enquire Now</Button>
+                            <Button 
+                                color='white' 
+                                variant='solid' 
+                                background={"primary"} 
+                                _hover={{background: 'white', transition: '0.4s', color: 'black'}}>
+                                    Enquire Now
+                            </Button>
                         </ButtonGroup>
                         {/* <IconButton
                             variant="outline"
@@ -113,9 +134,22 @@ export default function Navigation(props) {
                         /> */}
                     <ButtonGroup variant="link" spacing="8">
                         {data.navLinks.map((item) => (
-                            <Button size='sm' key={item} onClick={(e) => scrollTo(e)} value={item} color='white'>{item}</Button>
+                            <Button 
+                                size='sm' 
+                                key={item} 
+                                onClick={(e) => isHome ? scrollTo(e) : navigateToHomeSection(e)} 
+                                value={item} 
+                                color='white'>
+                                    {item}
+                            </Button>
                         ))}
-                        <Button color='white' variant='solid' background={"primary"}>Enquire Now</Button>
+                        <Button 
+                            color='white' 
+                            variant='solid' 
+                            background={"primary"} 
+                            _hover={{background: 'white', transition: '0.4s', color: 'black'}}>
+                                Enquire Now
+                        </Button>
                     </ButtonGroup>
                 </Flex>
             ) : (
@@ -148,7 +182,7 @@ export default function Navigation(props) {
                         aria-label="Open Menu"
                         /> */}
                     <ButtonGroup variant="link" spacing="8">
-                        <Button color='white' variant='solid' background={"primary"}>Enquire Now</Button>
+                        <Button color='white' variant='solid' background={"primary"} _hover={{background: 'white', transition: '0.4s', color: 'black'}}>Enquire Now</Button>
                         <IconButton
                         variant="ghost"
                         color='white'
@@ -185,10 +219,8 @@ export default function Navigation(props) {
                         />
                         <VStack spacing="10" justify="center" align="stretch" display="flex">
                             {data.navLinks.map((item) => (
-                                <Button key={item} size='lg' value={item} onClick={(e) => {
-                                    // handleDrawerClose();
-                                    scrollTo(e);
-                                }} variant='link' color='secondary'>{item}</Button>
+                                <Button key={item} size='lg' value={item} onClick={(e) => isHome ? scrollTo(e) : navigateToHomeSection(e)} 
+                                variant='link' color='secondary' _hover={{background: 'white', transition: '0.4s', color: 'black'}}>{item}</Button>
                             ))}
                         </VStack>
                     </DrawerBody>

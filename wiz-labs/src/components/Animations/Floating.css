@@ -14,3 +14,52 @@
     will-change: transform;
     text-align: center;
 }
+
+.particle {
+  z-index: 1;
+} 
+
+.particle > *{
+  animation: fly 120s linear infinite;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes fly {
+  0% {
+    transform: translate(-200%,110vh) rotateZ(0deg);
+  }
+
+  12.5% {
+    transform: translate(120vw,20vh) rotateZ(40deg);
+  }
+
+  25% {
+    transform: translate(50vw,50vh) scale(1.25) rotateZ(-30deg);
+  }
+
+  37.5% {
+    transform: translate(-200%,120vh) rotateZ(-50deg);
+  }
+
+  50% {
+    transform: translate(100vw,50vh) rotateZ(0deg);
+  }
+
+  62.5% {
+    transform: translate(20vw,100vh) rotateZ(30deg);
+  }
+  75% {
+    transform: translate(200%,100vh) rotateZ(0deg);
+  }
+  87.5% {
+    transform: translate(50vw,-200%) scale(1.75) rotateZ(20deg);
+  }
+
+  100% {
+    transform: translate(-200%,110vh) rotateZ(0deg);
+  }
+}

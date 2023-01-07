@@ -38,17 +38,3 @@ export default function LoadingComponent(props) {
         </Container>
     )
 }
-
-        // ANOTHER WAY
-        {/* <div class="container">
-        <div class="circle-1"></div>
-        <div class="circle-2"></div>
-        <div class="circle-3"></div>
-        <div class="circle-4"></div>
-        <div class="circle-5"></div>
-        
-        <div class="square-1"></div>
-        <div class="square-2"></div>
-        <div class="square-3"></div>
-        <div class="square-4"></div>
-        </div>   */}

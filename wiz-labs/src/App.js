@@ -7,12 +7,14 @@ import Navigation from './components/Navigation/Navigation';
 import Team from './components/Team/Team';
 import TeamMemberPage from './components/Team/TeamMemberPage';
 import portfolioData from './portfolio_data';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import ScrollToTop from './components/Scrollbar/ScrollToTop';
 import Footer from './components/Footer/Footer';
+import NotFoundPage from './components/NotFound/NotFoundPage';
 import Services from './components/Services/Services';
 import ContactUs from './components/Contacts/ContactUs';
 import LoadingComponent from './components/LoadingComponent/LoadingComponent';
+import FloatingParticle from './components/Animations/FloatingParticles';
 import Home from './components/Home';
 import './App.css';
 
@@ -23,6 +25,11 @@ export const App = () => {
   const teamRef = useRef(null);
   const portfolioRef = useRef(null);
   const contactRef = useRef(null);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     if(loading) {
@@ -35,9 +42,14 @@ export const App = () => {
     return new Promise((resolve) => setTimeout(() => resolve(), 2500));
   }
 
-  const scrollTo = (event) => {
+  const scrollTo = (event, stringRoute = '') => {
     event.preventDefault();
-    const route = event.target.value.toLowerCase().split(' ').join('-');
+    let route;
+    if(stringRoute) {
+      route = stringRoute.toLowerCase().split(' ').join('-');
+    } else {
+      route = event.target.value.toLowerCase().split(' ').join('-');
+    }
 
     switch(route) {
     case "home":
@@ -83,6 +95,7 @@ export const App = () => {
                       <Team innerRef={teamRef} data={portfolioData}/>
                       <Portfolio innerRef={portfolioRef} data={portfolioData}/>
                       <ContactUs innerRef={contactRef} data={portfolioData}/>
+                      <FloatingParticle data={portfolioData}/>
                       <ScrollToTop/>
                   </React.Fragment>
               }
@@ -91,12 +104,13 @@ export const App = () => {
           {/* <Route path='/services' element={<Services data={portfolioData}/>}/> */}
           <Route exact path='/team-member/:name' element={<TeamMemberPage data={portfolioData}/>}/>
           <Route exact path='/portfolio/:name' element={<PortfolioPage data={portfolioData}/>}/>
+          <Route path='*' element={<NotFoundPage/>}/>
         </Routes>
         {
           loading ? 
             null 
           : 
-            <Footer data={portfolioData}/>
+            <Footer data={portfolioData} scrollTo={scrollTo}/>
         }
         {/* 
         ALSO IMPLEMENT THE COLOR-THIEF AND LIVE CHAT

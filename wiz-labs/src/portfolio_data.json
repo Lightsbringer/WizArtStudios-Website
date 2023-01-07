@@ -6,14 +6,20 @@
     "logo_tab": "",
     "imagebaseurl":"https://rbhatia46.github.io/",
     "name": "WizArt Studios",
-    "motto": "Be the design solution for every need.\n Empower artists to follow their dreams.",
-    "hook": "Build your magical idea with the help of our skilled digital artists, marketing specialists and web developers. Everything in one place, all you need to do is say the magic words.",
+    "motto": "Let us be the magic that your team needs.",
+    "hook": "Build your magical idea with the help of our skilled digital artists, marketing specialists and web developers.",
     "team_description": "The team is composed of young, talented and hardworking apprentices. Each of us appeared out of thin air with the sole idea to be pro-active, energetic and task-driven towards achieving the upmost value for the customer. Artists, developers, marketing agents, sorcerers, mages, dwarfs and other magical beasts line up in our headquarters ready to work towards your enlightening ideas. Working with us will ensure that you will align all the ideas flowing through your head and choose the right path for your upcoming product/service. A few magic words and... POOF. Voilà, there it is!",
     "skills_description": "Everyday we strive to add new skills to our carefully assembled set of capabilities. Below is a list of some of them. The special wizardry can only be discussed in a private call with the main mages.",
     "routes": [ "", "/our-services", "/team", "portfolio", "contact-us" ],
     "contact_us_heading": "We would love to hear more from you",
     "contact_us_description": "Feel free to reach out to us at anytime and schedule a meeting to talk about the future of your business. ",
     "navLinks": [
+      "Services",
+      "Team",
+      "Our Work",
+      "Contact Us"
+    ],
+    "footerLinks": [
       "Home",
       "Services",
       "Team",
@@ -26,11 +32,12 @@
       "Fanart",
       "Custom requests"
     ],
+    "floatingParticleImages": ["bong.png", "wand.png", "crystalball.png"],
     "theTeam": [
       {
         "name": "Kamelita",
         "short_description": "Kamelita",
-        "role": "Social Media Manager, Artist",
+        "role": "Social Media Manager, Content Creator",
         "description": "TODO",
         "discord": "",
         "twitter": "",
@@ -39,7 +46,7 @@
         "tiktok": "",
         "calendly": "https://calendly.com/wizard_/",
         "skills": "",
-        "photoUrl": "wiz.png"
+        "photoUrl": "kamelita.jpg"
       },
       {
         "name": "Turtle",
@@ -53,7 +60,7 @@
         "tiktok": "",
         "calendly": "https://calendly.com/wizard_/",
         "skills": "",
-        "photoUrl": "wiz.png"
+        "photoUrl": "turtle.jpg"
       },
       {
         "name": "Gabriela",
@@ -67,12 +74,12 @@
         "tiktok": "",
         "calendly": "https://calendly.com/wizard_/",
         "skills": "",
-        "photoUrl": "wiz.png"
+        "photoUrl": "gabriela.jpg"
       },
       {
         "name": "Kriko",
         "short_description": "A mag that kinda loves gadgets and magic powders. Be cautious around him",
-        "role": "Full Stack Web developer, Project Manager, Dev Team Lead",
+        "role": "Full Stack Web developer, Dev Team Lead",
         "description": "I am the coder of the group. I always strive to expand my field of knowledge further and accept new endevours in the world of programming. My joints are fat like my commits. Main focus is on Javascript stack and soon more WEB3 solution as well. Sleep schedule is ruined since 1998.",
         "discord": "",
         "twitter": "",
@@ -81,7 +88,7 @@
         "tiktok": "",
         "calendly": "https://calendly.com/kriko-calls",
         "skills": "HTML; CSS; Javascript and JS Frameworks(React, Angular); JQuery; NodeJS; Typescript; Redux/Flux; Knowledge of AWS Services; ElasticSearch Stack; Databases - PostgreSQL, SQL Server, MongoDB, Sequilize, Firebase; REST API",
-        "photoUrl": "wiz.png"
+        "photoUrl": "kriko.jpg"
       },
       {
         "name": "Amoros",
@@ -95,7 +102,7 @@
         "tiktok": "",
         "calendly": "https://calendly.com/wizard_/",
         "skills": "",
-        "photoUrl": "wiz.png"
+        "photoUrl": "amoros.jpg"
       },
       {
         "name": "Wizard",
@@ -109,7 +116,7 @@
         "tiktok": "",
         "calendly": "https://calendly.com/wizard_/",
         "skills": "",
-        "photoUrl": "wiz.png"
+        "photoUrl": "wizard.jpg"
       }
     ],
     "officialLinks": {
@@ -123,181 +130,78 @@
       {
         "type": "NFT Art",
         "image": "nftart.png",
-        "description": "Order custom art for yourself or your new upcoming project"
+        "description": "Our professional artists will work with you to develop and design your idea into a lucrative NFT."
       },
       {
         "type": "Custom Art",
         "image": "customart.png",
-        "description": "Hire experienced web developers from WizArt and create a new magical world for your community"
+        "description": "Express your concept ideas and put the boring blank page to life by having our artists produce a one-of-a-kind personalized piece for you."
       },
       {
         "type": "Social Media Assets",
         "image": "socialmediaasset.png",
-        "description": "Get the best social media exposure and much more thanks to our experts in the field. We offer everything from ..."
+        "description": "WizArt Studios makes it simple to design, maintain, store, and distribute video and illustration assests for your social media."
       },
       {
         "type": "Branding Identity",
         "image": "branding.png",
-        "description": "Get the best social media exposure and much more thanks to our experts in the field. We offer everything from ..."
+        "description": "Looking to bring your vision to life? Or your old one got boring? Our team can make the right branding assets for your vision."
       }
     ],
     "portfolio":{
-      "logos": [      
+      "logos": [
         {
-          "name":"project1",
-          "description":"mobileapp",
-          "imgurl":"Untitled_Artwork 1(1).jpg",
-          "index": "0"
-        },
-        {
-          "name":"project2",
-          "description":"mobileapp",
-          "imgurl":"Untitled_Artwork 2.jpg",
-          "index": "1"
-        },
-        {
-          "name":"project3",
-          "description":"mobileapp",  
-          "imgurl":"Untitled_Artwork 2(1).jpg",
-          "index": "2"
-        },
-        {
-          "name":"project4",
-          "description":"mobileapp",
-          "imgurl":"Untitled_Artwork 4.jpg",
-          "index": "3"
-        },
-        {
-          "name":"project5",
-          "description":"mobileapp",  
-          "imgurl":"Untitled_Artwork 3.jpg",
-          "index": "4"
-        },
-        {
-          "name":"project6",
-          "description":"mobileapp",
-          "imgurl":"Untitled_Artwork 3(1).jpg",
-          "index": "5"
+          "name":"NFA logo",
+          "description":"NON Financial Advisors is a project that we executed completely on our own and it is yet to be launched. The artwork is inspired by the 80s and 90s, trying to envision a more retro art approach. For them, we created unique logo and artwork used for their marketing campaigns.",
+          "imgurl":"NFALogo.jpg"
         }
       ],
       "nftprojects": [
         {
-          "name":"project1",
-          "description":"mobileapp",
-          "imgurl":"NFT_1.jpg"
+          "name":"Good Mood Dudes",
+          "description":"Good Mood Dudes is a Web3 retail experience NFT backed by a real life product: The Ayoka drink. We have worked with them on multiple sketches some of which are yet to be released on their socials!",
+          "imgurl":"GoodMoodDudes.jpg"
         },
         {
-          "name":"project2",
-          "description":"mobileapp",
-          "imgurl":"NFT_2.jpg"
+          "name":"NFA",
+          "description":"NON Financial Advisors is a project that we executed completely on our own and it is yet to be launched. The artwork is inspired by the 80s and 90s, trying to envision a more retro art approach. Along with the logo, we created NFT artworks for their upcoming project launch.",
+          "imgurl":"NFA_art.jpg"
         },
         {
-          "name":"project3",
-          "description":"mobileapp",  
-          "imgurl":"NFT_3.jpg"
-        },
-        {
-          "name":"project4",
-          "description":"mobileapp",
-          "imgurl":"NFT_4.jpg"
-        },
-        {
-          "name":"project5",
-          "description":"mobileapp",  
-          "imgurl":"NFT_5.jpg"
+          "name":"FastFoodies",
+          "description":"Those are some sneak peaks from a collection called FastFoodies, which unfortunately did not get to see light, because the founders vanished into thin air.",  
+          "imgurl":"FastFoodies.png"
         }
       ],
       "fanart": [
         {
-          "name":"project1",
-          "description":"mobileapp",
+          "name":"The Artist Tears collection",
+          "description":"A wonderful collection of all the artist tears collected in a beautiful marketable transparent milk carton to display for the world to see. Yes, these are our tears indeed. Keep in mind, they are magical. So be cautious when using.",
           "imgurl":"artist_tears_1.jpg"
         },
         {
-          "name":"project2",
-          "description":"mobileapp",
-          "imgurl":"artist_tears_2.jpg"
+          "name":"Tigers",
+          "description":"Tigers NFT project fanart mixed with Pokemon vibes to bring back the old memories before the big digitalization began and everyone was just playing Pokemon on Nintendo and Gameboy.",
+          "imgurl":"NFT_1.jpg"
         },
         {
-          "name":"project3",
-          "description":"mobileapp",  
-          "imgurl":"artist_tears_3.jpg"
+          "name":"Primates",
+          "description":"Primates NFT project fanart created to flex on all them young bloods. You get what I'm sayin cuuz?",  
+          "imgurl":"NFT_3.jpg"
         },
         {
-          "name":"project4",
-          "description":"mobileapp",
-          "imgurl":"artist_tears_4.jpg"
-        },
-        {
-          "name":"project5",
-          "description":"mobileapp",  
+          "name":"Asset Bender",
+          "description":"Twitter banner for AssetBender to help them spread Web3 for the Masses and obtain control of all the elements under their will.",  
           "imgurl":"Banner_1.jpg"
-        },
-        {
-          "name":"project6",
-          "description":"mobileapp",
-          "imgurl":"artist_tears_5.jpg"
-        },
-        {
-          "name":"project5",
-          "description":"mobileapp",  
-          "imgurl":"Banner_2.jpg"
-        },
-        {
-          "name":"project6",
-          "description":"mobileapp",
-          "imgurl":"artist_tears_6.jpg"
         }
       ],
       "customrequests": [
         {
-          "name":"project1",
-          "description":"mobileapp",
-          "imgurl":"Custom_1.jpg"
-        },
-        {
-          "name":"project2",
-          "description":"mobileapp",
-          "imgurl":"Custom_2.jpg"
-        },
-        {
-          "name":"project3",
-          "description":"mobileapp",  
-          "imgurl":"Custom_3.jpg"
-        },
-        {
-          "name":"project4",
-          "description":"mobileapp",
-          "imgurl":"Custom_4.jpg"
-        },
-        {
-          "name":"project5",
-          "description":"mobileapp",  
-          "imgurl":"Custom_5.jpg"
-        },
-        {
-          "name":"project6",
-          "description":"mobileapp",
-          "imgurl":"Custom_6.jpg"
-        },
-        {
-          "name":"project5",
-          "description":"mobileapp",  
-          "imgurl":"Custom_7.jpg"
-        },
-        {
-          "name":"project6",
-          "description":"mobileapp",
-          "imgurl":"Custom_8.jpg"
+          "name":"MetaTattooClub",
+          "description":"MetaTatooClub is an NFT project situated in the world of tattoo art providing wide variety of utility. WizArt Studios created an illustration displaying their whole roadmap in an eye-catching and creative way. They are big tattoos maxis, and numerours team members from their company are quite popular in real life as tatoo artists. One of them did tatoos for Post Malone. Isn't that cool?",
+          "imgurl":"MetaTattooClub.jpg"
         }
       ]
-    },
-    "footerLinks": [
-      "Home",
-      "Services",
-      "Team",
-      "Portfolio",
-      "Contact Us"
-    ]
+    }
   }
   
