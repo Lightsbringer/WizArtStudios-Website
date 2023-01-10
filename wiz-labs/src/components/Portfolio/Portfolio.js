@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import { Box, Flex, Text, Heading, Image,
   GridItem, 
-  Grid} from '@chakra-ui/react';
+  useBreakpointValue} from '@chakra-ui/react';
 import Deck from './Deck';
 import Aos from 'aos';
 import { useNavigate } from 'react-router-dom';
@@ -12,6 +12,7 @@ export default function Portfolio(props) {
   const portfolioData = props.data;
   const navigate = useNavigate();
   const assets = ['artist_tears_4.jpg', 'NFT_1.jpg', 'Custom_1.jpg', 'Banner_1.jpg'];
+  const isMobile = useBreakpointValue({base: true, sm: true, md: false, xl: false});
 
   useEffect(() => {
     Aos.init({duration: 1500});
@@ -36,14 +37,13 @@ export default function Portfolio(props) {
       background='secondary'
       zIndex={'25'}
       position="relative"
-      height='5xl'
+      height={['3xl','4xl','5xl','5xl','5xl',]}
       max-width='2000px'
-      alignItems='center' 
-      width='100%'>
+      alignItems='center'>
       <Flex 
         display='flex' 
         justifyContent="space-evenly" 
-        w={['xl', '2xl', '4xl', '6xl', '8xl']}
+        w={['100%', '2xl', '4xl', '6xl', '8xl']}
         flexDirection={'column'} 
         alignItems='center'
         h='100%'
@@ -51,28 +51,34 @@ export default function Portfolio(props) {
         margin='0 auto'
         overflowX={'auto'}>
         <Heading 
-          fontSize={['lg', 'lg', '2xl', '3xl', '4xl']}
+          fontSize={['xl', 'xl', '2xl', '3xl', '4xl']}
           align={'left'} 
           color='primary'
           mb={4}>
             Our Work
         </Heading>
-        <Grid
-          templateColumns='repeat(4, minmax(1fr, 1fr))'
+        <Flex
           overflowX='auto'
-          gridAutoFlow={'column'}
-          gridAutoColumns='minmax(1fr, 1fr)'
-          flex='0 0 80%'
+          height='80%'
+          m='auto 1rem'
           gap={3}
+          display='flex' 
+          flexWrap='nowrap'
+          whiteSpace='nowrap'
         >
           {assets.map((asset, i) => (
-            <GridItem 
+          <Box 
               key={i}
+              minWidth={['100%','75%','50%','25%','25%',]}
               onClick={() => handleGridClick(portfolioData.workCategories[i])}
               onMouseOver={handleOnMouseHover}
               onMouseLeave={handleOnMouseLeave}
               cursor='pointer'>
-            <Box className='image-container' height='100%' position='relative' overflow='hidden'>
+            <Box 
+              className='image-container' 
+              height='100%'
+              position='relative' 
+              overflow='hidden'>
               <Image
                 opacity={'1'}
                 height='100%'
@@ -99,9 +105,9 @@ export default function Portfolio(props) {
                 {portfolioData.workCategories[i]}
               </Text>
             </Box>
-          </GridItem>
+          </Box>
           ))}
-        </Grid>
+        </Flex>
       </Flex>
       <Deck/>
     </Box>

@@ -24,7 +24,7 @@ export default function Navigation(props) {
     const { pathname } = useLocation();
     const isDesktop = useBreakpointValue({ base: false, lg: true , xl: true });
     const isTablet = useBreakpointValue({base: false, md: true});
-    // const isMobile = useBreakpointValue({base: false, sm: true});
+    const isMobile = useBreakpointValue({base: true, sm: true});
     // const { colorMode, toggleColorMode } = useColorMode();
     const [showDrawer, setShowDrawer] = useState(false);
     const isHome = pathname === '/';
@@ -152,11 +152,11 @@ export default function Navigation(props) {
                         </Button>
                     </ButtonGroup>
                 </Flex>
-            ) : (
+            ) : isMobile ? (
                 <Flex
                     height="100%"  
                     width={'100%'}
-                    m={'auto 3rem'}
+                    m={'auto 0.5rem'}
                     justifyContent="space-between"
                     alignItems="center">
                     <Image
@@ -181,18 +181,26 @@ export default function Navigation(props) {
                         }
                         aria-label="Open Menu"
                         /> */}
-                    <ButtonGroup variant="link" spacing="8">
-                        <Button color='white' variant='solid' background={"primary"} _hover={{background: 'white', transition: '0.4s', color: 'black'}}>Enquire Now</Button>
+                    <ButtonGroup variant="link" spacing="8" alignItems='center'>
+                        <Button 
+                            size='sm'
+                            color='white' 
+                            variant='solid' 
+                            background={"primary"} 
+                            _hover={{background: 'white', transition: '0.4s', color: 'black'}}>
+                                Enquire Now
+                        </Button>
                         <IconButton
-                        variant="ghost"
-                        color='white'
-                        onClick={handleOpenDrawer}
-                        icon={<FiMenu fontSize="2.25rem" />}
-                        aria-label="Open Menu"
-                        />
+                            variant="ghost"
+                            color='white'
+                            onClick={handleOpenDrawer}
+                            icon={<FiMenu fontSize="2.25rem" />}
+                            aria-label="Open Menu"
+                            />
                     </ButtonGroup>
                 </Flex>
-            )}
+            ) : null}
+
             <Drawer 
                 isOpen={showDrawer} 
                 placement='right'

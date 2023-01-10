@@ -42,7 +42,7 @@ export default function TeamMemberPage(props) {
             data-aos="fade-up" 
             w={['md', '3xl', '5xl', '7xl', '9xl']}
             minHeight={'90vh'}
-            margin='3rem auto'
+            margin='0 auto'
             background='background'
             variant='div'>
             {currentTeamMember ? 
@@ -51,7 +51,7 @@ export default function TeamMemberPage(props) {
                     height='100%'
                     flex-direction='column'
                     justifyContent='space-evenly'
-                    m='3rem auto'
+                    m='4rem auto'
                     alignItems={{base: 'center', sm: 'center', md: 'center', lg: 'top', xl: 'top'}}
                     flexWrap={'wrap'}
                     flexDirection={{base: 'column', sm: 'column', md: 'column', lg: 'row'}}>
@@ -65,7 +65,14 @@ export default function TeamMemberPage(props) {
                             alt='WizArts logo'
                             mb={'3rem'}
                         />
-                        <Button color='white' variant='solid' background={"primary"} onClick={handleScheduleMeetingClick} _hover={{background: 'white', transition: '0.4s', color: 'black'}}>Schedule a meeting</Button>
+                        <Button 
+                            color='white' 
+                            variant='solid' 
+                            background={"primary"} 
+                            onClick={handleScheduleMeetingClick} 
+                            _hover={{background: 'white', transition: '0.4s', color: 'black'}}>
+                            Schedule a meeting
+                        </Button>
                         <Box>
                             <ButtonGroup>
                                 {currentTeamMember.discord ? 
@@ -111,24 +118,24 @@ export default function TeamMemberPage(props) {
                             </ButtonGroup>
                         </Box>
                     </VStack>
-                    <VStack width={{base: '70%', lg: '30%'}}>
+                    <VStack width={{base: '70%', lg: '30%'}} mb={5}>
                         <Heading 
                             as='h4' 
                             textAlign='left'
-                            fontSize={['md', 'lg', '2xl', '3xl', '4xl']}
+                            fontSize={['lg', 'xl', '2xl', '3xl', '4xl']}
                             color='primary'>
                                 {currentTeamMember.name}
                         </Heading>
                         <Text 
                             textAlign={'left'}
-                            fontSize={['sm', 'md', 'xl', 'xl', '2xl']}
+                            fontSize={['md', 'xl', 'xl', 'xl', '2xl']}
                             align={'center'} 
                             color='primary'>
                             {currentTeamMember.role}
                         </Text>
                         <Text
                             textAlign={'left'}
-                            fontSize={['sm', 'md', 'xl', 'xl', '2xl']}
+                            fontSize={['md', 'lg', 'xl', 'xl', '2xl']}
                             color='white'>
                             {currentTeamMember.description}
                         </Text>
@@ -136,7 +143,7 @@ export default function TeamMemberPage(props) {
                     <VStack width={{base: '70%', lg: '50%', xl: '50%'}}>
                         <Text 
                             textAlign={'center'}
-                            fontSize={['md', 'lg', '2xl', '2xl', '2xl']}
+                            fontSize={['lg', 'xl', '2xl', '2xl', '2xl']}
                             align={'center'} 
                             color='primary'>
                             Skills
@@ -148,7 +155,7 @@ export default function TeamMemberPage(props) {
                                     textAlign={'left'}
                                     width='70%'
                                     m='0 auto'
-                                    fontSize={['sm', 'md', 'lg', 'xl', 'xl']}
+                                    fontSize={['md', 'lg', 'xl', 'xl', 'xl']}
                                     color='white'>
                                     <ListIcon as={GiCrystalWand}/>
                                     {/* <ListIcon as={FaHatWizard}/> */}

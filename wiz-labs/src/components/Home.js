@@ -6,7 +6,8 @@ import {
     Image,
     Box,
     Button,
-    Heading
+    Heading,
+    useBreakpointValue
 } from '@chakra-ui/react';
 import Floating from './Animations/Floating';
 import './Home.css';
@@ -14,6 +15,7 @@ import './Home.css';
 export default function Home(props) {
     const portfolioData = props.data;
     const windowHeight = window.innerHeight;
+    const isMobile = useBreakpointValue({base: true, sm: true, md: false, xl: false});
 
     return (
         <Box 
@@ -22,17 +24,17 @@ export default function Home(props) {
             display={'flex'}
             zIndex={21}
             position="relative"
-            height={80 * windowHeight / 100}
-            alignItems='center'
+            height={isMobile ? 70 * windowHeight/100 : 80 * windowHeight / 100}
+            alignItems={'center'}
             justifyContent='space-evenly'>
             <Flex 
                 display='flex' 
                 w={['md', 'xl', '3xl', '5xl', '6xl']}
                 m={'0 auto'}
                 justifyContent="space-between" 
-                flexDirection={'row'} 
+                flexDirection={isMobile ? 'column-reverse' : 'row'}
                 alignItems='center'>
-                <Stack spacing={10} width='60%'>
+                <Stack spacing={isMobile ? 5 : 10} width={isMobile ? '80%' : '60%'} m='0 auto'>
                     <Heading fontSize={['md', 'lg', '2xl', '3xl', '4xl']} align={'left'} color='primary' mb={4}>{portfolioData.motto}</Heading>
                     <Text fontSize={['sm', 'md', 'xl', 'xl', '2xl']}  align={'left'} color='secondary'>{portfolioData.hook}</Text>
                     <Box alignContent={'left'}>
@@ -44,7 +46,7 @@ export default function Home(props) {
                         </Button>
                     </Box>
                 </Stack>
-                <Stack width='40%'>
+                <Stack width={isMobile ? '80%' : '40%'} m='0 auto'>
                     <Floating enabled={true}>
                         <Image
                             width={'auto'}

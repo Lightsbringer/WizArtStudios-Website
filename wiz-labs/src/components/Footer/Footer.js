@@ -23,36 +23,36 @@ export default function Footer(props) {
         <Box 
           display='flex' 
           flexDirection='row'
-          w={['md', 'md', '2xl', '3xl', '4xl']}
+          w={['sm', 'md', '2xl', '3xl', '4xl']}
           justifyContent='space-between' 
           alignItems='flex-start'>
           <VStack verticalAlign={'top'}>
-            <Heading fontFamily='heading' fontSize='lg' color='primary'>
+            <Heading fontFamily='heading' fontSize={['md', 'lg', 'lg', 'xl', 'xl']} color='primary'>
               Get Started
             </Heading>
-            <Link color='secondary' fontFamily='body' fontSize='md' onClick={(e) => scrollTo(e, portfolioData.footerLinks[0])}>
+            <Link color='secondary' fontFamily='body' fontSize={['sm', 'md', 'lg', 'xl', 'xl']} onClick={(e) => scrollTo(e, portfolioData.footerLinks[0])}>
               {portfolioData.footerLinks[0]}
             </Link>
-            <Link color='secondary' fontFamily='body' fontSize='md' onClick={(e) => scrollTo(e, portfolioData.footerLinks[1])}>
+            <Link color='secondary' fontFamily='body' fontSize={['sm', 'md', 'lg', 'xl', 'xl']} onClick={(e) => scrollTo(e, portfolioData.footerLinks[1])}>
               {portfolioData.footerLinks[1]}
             </Link>
           </VStack>
           <VStack verticalAlign={'top'}>
-            <Heading fontFamily='heading' fontSize='lg' color='primary'>
+            <Heading fontFamily='heading' fontSize={['md', 'lg', 'lg', 'xl', 'xl']} color='primary'>
               Company
             </Heading>
-            <Link color='secondary' fontFamily='body' fontSize='md' onClick={(e) => scrollTo(e, portfolioData.footerLinks[2])}>
+            <Link color='secondary' fontFamily='body' fontSize={['sm', 'md', 'lg', 'xl', 'xl']} onClick={(e) => scrollTo(e, portfolioData.footerLinks[2])}>
               {portfolioData.footerLinks[2]}
             </Link>
-            <Link color='secondary' fontFamily='body' fontSize='md' onClick={(e) => scrollTo(e, portfolioData.footerLinks[3])}>
+            <Link color='secondary' fontFamily='body' fontSize={['sm', 'md', 'lg', 'xl', 'xl']} onClick={(e) => scrollTo(e, portfolioData.footerLinks[3])}>
               {portfolioData.footerLinks[3]}
             </Link>
           </VStack>
           <VStack verticalAlign={'top'}>
-            <Heading fontFamily='heading' fontSize='lg' color='primary'>
+            <Heading fontFamily='heading' fontSize={['md', 'lg', 'lg', 'xl', 'xl']} color='primary'>
               Socials
             </Heading>
-            <Link color='secondary' fontFamily='body' fontSize='md' onClick={(e) => scrollTo(e, portfolioData.footerLinks[4])}>
+            <Link color='secondary' fontFamily='body' fontSize={['sm', 'md', 'lg', 'xl', 'xl']} onClick={(e) => scrollTo(e, portfolioData.footerLinks[4])}>
               {portfolioData.footerLinks[4]}
             </Link>
           </VStack>
@@ -62,6 +62,7 @@ export default function Footer(props) {
           flexDirection='row'
           w={['md', 'md', '2xl', '3xl', '4xl']}
           justifyContent='space-between' 
+          flexWrap='wrap'
           alignItems='flex-start'>
             <Text fontSize={'sm'} align={'left'} color='secondary'><FaRegCopyright style={{display: 'inline'}}/> WizArt Studios. All Rights Reserved.</Text>
             <Link fontSize={'sm'}  align={'left'} color='secondary'>Privacy Policy</Link>

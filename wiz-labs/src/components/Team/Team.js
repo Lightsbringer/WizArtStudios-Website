@@ -17,9 +17,9 @@ export default function Team(props) {
   const portfolioData = props.data;
   // const circleDegressArray = ['270', '315', '0', '45', '90', '135', '180', '225'];
   const circleDegressArray = ['0', '60', '120', '180', '240', '300'];
-  const avatarIconTranslationValue = useBreakpointValue({ base: '200px', sm: '280px', md: '300px', lg: '400px' , xl: '400px' });
-  const circleContainerWidth = useBreakpointValue({ base: '200px', sm: '125px', md: '175px', lg: '225px' , xl: '250px' });
-  const isMobileDevice = useBreakpointValue({base: false, sm: true, md: true, lg: false, xl: false});
+  const avatarIconTranslationValue = useBreakpointValue({ base: '140px', sm: '250px', md: '300px', lg: '400px' , xl: '400px' });
+  const circleContainerWidth = useBreakpointValue({ base: '100px', sm: '125px', md: '175px', lg: '225px' , xl: '250px' });
+  const isMobileDevice = useBreakpointValue({base: true, sm: true, md: true, lg: false, xl: false});
 
   useEffect(() => {
     Aos.init({duration: 1500});
@@ -29,14 +29,14 @@ export default function Team(props) {
     <Box 
       ref={props.innerRef}
       data-aos="fade-up" 
-      w={['md', 'lg', '100%', '100%', '100%']}
+      w={['100%', 'lg', '100%', '100%', '100%']}
       position="relative"
       zIndex={'23'}
-      height={'7xl'}
+      height={['4xl','5xl','7xl','7xl','7xl']}
       m={'0 auto'}>
         <Flex 
           display='flex' 
-          w={['md', 'xl', '3xl', '5xl', '6xl']}
+          w={['100%', 'xl', '3xl', '5xl', '6xl']}
           justifyContent="space-between" 
           flexDirection={'column'} 
           alignItems='center'
@@ -46,15 +46,17 @@ export default function Team(props) {
               <Text 
                 fontSize={['sm', 'sm', 'xl', 'xl', 'xl']}
                 align={'left'} 
+                width='80%'
+                m='0 auto'
                 color='secondary'>
                   {portfolioData.team_description}
               </Text>
-              <div className='circle-wrapper'>
+              <div className='circle-wrapper' style={{ margin: isMobileDevice ? '250px auto' : '400px auto'}}>
                 <div className='circle'>
                   <Floating enabled={true}>
                     <Image
-                      height={['sm', 'md', 'md', 'xl', 'xl']}
-                      m={'-150px auto'}
+                      height={['200px', 'sm', 'md', 'xl', 'xl']}
+                      m={isMobileDevice ? '-70px auto' : '-150px auto'}
                       objectFit='contain' 
                       borderRadius='100px' 
                       src={require(`../../assets/tower.png`)}/>
@@ -69,16 +71,16 @@ export default function Team(props) {
                     <TeamMember value={teamMember.name}>
                       <Box borderRadius='100px'>
                         <Image 
-                          h={['100px', '125px', '175px', '225px', '250px']}
-                          w={['100px', '125px', '175px', '225px', '250px']} 
+                          h={['80px', '125px', '175px', '225px', '250px']}
+                          w={['80px', '125px', '175px', '225px', '250px']} 
                           objectFit='contain' 
                           borderRadius='50%' 
                           src={require(`../../assets/${teamMember.photoUrl}`)}/>
                       </Box>
 
                       <Box sx={styles.card} 
-                        h={['100px', '125px', '175px', '225px', '250px']}
-                        w={['100px', '125px', '175px', '225px', '250px']}
+                        h={['80px', '125px', '175px', '225px', '250px']}
+                        w={['80px', '125px', '175px', '225px', '250px']}
                         borderRadius='51%' 
                         borderColor='primary' 
                         display='flex' 

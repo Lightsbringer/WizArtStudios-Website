@@ -17,7 +17,8 @@ import { Text,
     AlertIcon,
     AlertTitle,
     AlertDescription,
-    Slide
+    Slide,
+    useBreakpointValue
 } from '@chakra-ui/react';
 import { FaDiscord, FaTwitter, FaLinkedin, FaInstagram, FaTiktok } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
@@ -31,6 +32,7 @@ export default function ContactUs(props) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [description, setDescription] = useState('');
+    const isMobile = useBreakpointValue({base: true, sm: true, md: false, xl: false});
 
     const [displaySuccess, setDisplaySuccess] = useState(false);
     const [displayError, setDisplayError] = useState(false);
@@ -77,18 +79,18 @@ export default function ContactUs(props) {
             background='background'
             position="relative"
             variant='div'
-            height={{sm: '6xl', md: '4xl', lg: '4xl', xl: '4xl'}}>
+            height={['7xl','6xl','4xl','4xl','4xl']}>
             <Flex 
                 display='flex' 
-                w={{sm: '90%', md:'80%', lg: '70%', xl: '60%'}}
+                w={['90%','80%','70%','60%','50%']}
+                h='100%'
                 m={'0 auto'}
                 justifyContent="space-evenly" 
-                flexDirection={'column'} 
-                height='100%'
-                alignItems='center'>
+                alignItems="center"
+                flexDirection={'column'}>
                 <VStack>
-                    <Text fontSize={{sm: 'lg', md:'2xl', lg: '3xl', xl: '3xl'}}align={'left'} color='primary'>{portfolioData.contact_us_heading}</Text>
-                    <Text fontSize={{sm: 'md', md:'lg', lg: 'xl', xl: 'xl'}}  align={'left'} color='secondary'>{portfolioData.contact_us_description}</Text>
+                    <Text fontSize={['md', 'lg', '3xl', '3xl', '3xl']}align={'left'} color='primary'>{portfolioData.contact_us_heading}</Text>
+                    <Text fontSize={['md', 'lg', 'xl', 'xl', 'xl']}  align={'left'} color='secondary'>{portfolioData.contact_us_description}</Text>
                 </VStack>
                 <HStack display='flex' 
                     justifyContent="space-between" 
@@ -144,8 +146,7 @@ export default function ContactUs(props) {
                         display='flex' 
                         flexDirection='column' 
                         gap={5}
-                        justifyContent={'space-evenly'} 
-                        height='100%'>
+                        justifyContent={'space-evenly'}>
                         <Image 
                             height='300px' 
                             width='auto' 
@@ -165,7 +166,7 @@ export default function ContactUs(props) {
                             </Button>
                         </Box>
                         <Box>
-                            <Text fontSize={{sm: 'md', md:'md', lg: 'md'}}  align={'center'} color='secondary'>Follow us on social media</Text>
+                            <Text fontSize={'md'}  align={'center'} color='secondary'>Follow us on social media</Text>
                             <ButtonGroup>
                                 <IconButton
                                     variant="ghost"

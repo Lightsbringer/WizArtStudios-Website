@@ -3,7 +3,8 @@ import { Text,
     Box, 
     Image, 
     Heading, 
-    Flex} from '@chakra-ui/react';
+    Flex, 
+    useBreakpointValue} from '@chakra-ui/react';
 import Aos from 'aos';
 import Floating from '../Animations/Floating';
 import 'aos/dist/aos.css';
@@ -11,6 +12,7 @@ import 'aos/dist/aos.css';
 export default function Services(props) {
   const portfolioData = props.data;
   const [imageHovered, setImageHovered] = useState(null);
+  const isMobile = useBreakpointValue({base: true, sm: true, md: false, xl: false});
 
   useEffect(() => {
     Aos.init({duration: 1500});
@@ -21,7 +23,6 @@ export default function Services(props) {
       ref={props.innerRef}
       data-aos="fade-up" 
       zIndex={'22'}
-      
       position="relative"
       background='darkBackground'
       variant='div'>
@@ -43,6 +44,8 @@ export default function Services(props) {
             <Text 
               fontSize={['sm', 'xl', '2xl', '2xl', '2xl']}
               color='secondary'
+              width='80%'
+              m='0 auto'
               textAlign='left'>
                 {portfolioData.skills_description}
             </Text>
