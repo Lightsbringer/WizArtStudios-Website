@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import { Box, Flex, Text, Heading, Image,
   GridItem, 
   useBreakpointValue} from '@chakra-ui/react';
-import Deck from './Deck';
 import Aos from 'aos';
 import { useNavigate } from 'react-router-dom';
 import 'aos/dist/aos.css';
@@ -111,8 +110,6 @@ export default function Portfolio(props) {
       </Flex>
       <Deck/>
     </Box>
-    // <div id='deck-root'>
-    //   <Deck />
-    // </div>
+   
   );
 };
