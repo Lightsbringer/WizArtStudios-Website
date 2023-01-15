@@ -16,6 +16,7 @@ import ContactUs from './components/Contacts/ContactUs';
 import LoadingComponent from './components/LoadingComponent/LoadingComponent';
 import FloatingParticle from './components/Animations/FloatingParticles';
 import Home from './components/Home';
+import axios from 'axios';
 import './App.css';
 
 export const App = () => {
@@ -26,6 +27,8 @@ export const App = () => {
   const portfolioRef = useRef(null);
   const contactRef = useRef(null);
   const { pathname } = useLocation();
+  const environment = process.env.NODE_ENV;
+  const baseUrl = environment === 'production' ? process.env.REACT_APP_API_PROD_URL : process.env.REACT_APP_API_DEV_URL;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -37,6 +40,47 @@ export const App = () => {
       demoAsyncCall().then(() => setLoading(false));
     }
   }, [loading])
+
+  // useEffect(() => {
+  //   if(loading) {
+  //     setTimeout(() => {
+  //       createImageRepository()
+  //       .then((response) => cacheImages(response)) 
+  //       .then(() => setLoading(false));
+  //     }, 1000);
+  //   }
+  // }, [loading]);
+
+  // const cacheImages = async (files) => {
+  //   const imagePromises = await files.map((file) => {
+  //     return new Promise((resolve, reject) => {
+  //       const image = new Image();
+
+  //       image.src = `images/${file}`;
+  //       image.crossOrigin='anonymous';
+  //       image.onload = resolve(image);
+  //       image.onerror = reject();
+  //     })
+  //   });
+
+  //   await Promise.all(imagePromises)
+  //     .then((images) => {
+  //       setImages(images);
+  //     });
+  // }
+
+  // const createImageRepository = () => {    
+  //   return new Promise((resolve, reject) => {
+  //     axios.get(`${baseUrl}/api/getWebsiteMedia`)
+  //       .then((response) => {
+  //           console.log(response);
+  //           resolve(response.data);
+  //       })
+  //       .catch((error) => {
+  //         reject(error);
+  //       });
+  //   })
+  // }
 
   const demoAsyncCall = () => {
     return new Promise((resolve) => setTimeout(() => resolve(), 2500));
@@ -90,7 +134,7 @@ export const App = () => {
                     null
                   :
                   <React.Fragment>
-                      <Home innerRef={homeRef} data={portfolioData}/>
+                      <Home innerRef={homeRef} scrollTo={scrollTo} data={portfolioData}/>
                       <Services innerRef={servicesRef} data={portfolioData}/>
                       <Team innerRef={teamRef} data={portfolioData}/>
                       <Portfolio innerRef={portfolioRef} data={portfolioData}/>

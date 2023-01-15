@@ -10,7 +10,7 @@ import './Portfolio.css';
 export default function Portfolio(props) {
   const portfolioData = props.data;
   const navigate = useNavigate();
-  const assets = ['artist_tears_4.jpg', 'NFT_1.jpg', 'Custom_1.jpg', 'Banner_1.jpg'];
+  const assets = ['artist_tears_2.jpg', 'NFT_2.jpg', 'Custom_1.jpg', 'Banner_1.jpg'];
   const isMobile = useBreakpointValue({base: true, sm: true, md: false, xl: false});
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function Portfolio(props) {
       <Flex 
         display='flex' 
         justifyContent="space-evenly" 
-        w={['100%', '2xl', '4xl', '6xl', '8xl']}
+        w={['100%', '2xl', '4xl', '6xl', '9xl']}
         flexDirection={'column'} 
         alignItems='center'
         h='100%'
@@ -60,7 +60,6 @@ export default function Portfolio(props) {
           overflowX='auto'
           height='80%'
           m='auto 1rem'
-          gap={3}
           display='flex' 
           flexWrap='nowrap'
           whiteSpace='nowrap'
@@ -76,12 +75,13 @@ export default function Portfolio(props) {
             <Box 
               className='image-container' 
               height='100%'
-              position='relative' 
+              position='relative'
+              m='0 0.5rem' 
               overflow='hidden'>
               <Image
                 opacity={'1'}
                 height='100%'
-                src={require(`../../assets/${asset}`)}
+                src={`images/${asset}`}
                 objectFit="cover"
                 className='image'
                 transition={'.5s ease'}
@@ -108,8 +108,6 @@ export default function Portfolio(props) {
           ))}
         </Flex>
       </Flex>
-      <Deck/>
     </Box>
-   
   );
 };

@@ -74,8 +74,7 @@ export default function PortfolioPage(props) {
                                 height='100%'
                                 cursor={'pointer'}
                                 objectFit='contain'
-                                src={require(`../../assets/${project.imgurl}`)}
-                                alt='WizArts logo'
+                                src={`../images/${project.imgurl}`}
                             />
                         </Flex>
                     ))}

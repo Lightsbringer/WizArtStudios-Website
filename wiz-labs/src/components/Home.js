@@ -13,6 +13,7 @@ import Floating from './Animations/Floating';
 import './Home.css';
 
 export default function Home(props) {
+    const { scrollTo } = props;
     const portfolioData = props.data;
     const windowHeight = window.innerHeight;
     const isMobile = useBreakpointValue({base: true, sm: true, md: false, xl: false});
@@ -24,12 +25,12 @@ export default function Home(props) {
             display={'flex'}
             zIndex={21}
             position="relative"
-            height={isMobile ? 70 * windowHeight/100 : 80 * windowHeight / 100}
+            height={80 * windowHeight / 100}
             alignItems={'center'}
             justifyContent='space-evenly'>
             <Flex 
                 display='flex' 
-                w={['md', 'xl', '3xl', '5xl', '6xl']}
+                w={['100%', 'xl', '3xl', '5xl', '6xl']}
                 m={'0 auto'}
                 justifyContent="space-between" 
                 flexDirection={isMobile ? 'column-reverse' : 'row'}
@@ -41,6 +42,7 @@ export default function Home(props) {
                         <Button 
                             background='primary' 
                             color='white'
+                            onClick={(e) => scrollTo(e, 'services')}
                             _hover={{background: 'white', transition: '0.4s', color: 'black'}}>
                                 Learn More
                         </Button>
@@ -51,8 +53,7 @@ export default function Home(props) {
                         <Image
                             width={'auto'}
                             objectFit='contain'
-                            src={require(`../assets/wiz.png`)}
-                            alt='Landing Page Wiz'
+                            src={`images/wiz.png`}
                         />
                     </Floating>
                 </Stack>

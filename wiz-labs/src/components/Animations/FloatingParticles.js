@@ -29,8 +29,7 @@ function FloatingParticle(props) {
                         boxSize={['100px', '130px', '170px', '200px', '220px']}
                         m='0 auto'
                         objectFit='contain'
-                        src={require(`../../assets/${currentParticle}`)}
-                        alt='Landing Page Wiz'
+                        src={`images/${currentParticle}`}
                     />
                 </div>
             : null}

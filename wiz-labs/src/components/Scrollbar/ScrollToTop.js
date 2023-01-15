@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import {GiThornedArrow} from 'react-icons/gi';
-import { IconButton } from '@chakra-ui/react';
+import { IconButton, useBreakpointValue } from '@chakra-ui/react';
 
 const ScrollToTop = () => {
-    const [visible, setVisible] = useState(false)
-  
+    const [visible, setVisible] = useState(false);
+    const isMobile = useBreakpointValue({base: true, sm: true, md: false, xl: false});
+
     const toggleVisible = () => {
         const scrolled = document.documentElement.scrollTop;
         if (scrolled > 300){
@@ -26,7 +27,7 @@ const ScrollToTop = () => {
     
     return (
         <IconButton
-            display={visible ? 'block' : 'none'}
+            display={visible && !isMobile ? 'block' : 'none'}
             position="fixed"
             zIndex={'50'}
             background='secondary'

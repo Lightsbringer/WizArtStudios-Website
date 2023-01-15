@@ -40,7 +40,7 @@ export default function TeamMemberPage(props) {
     return (
         <Box
             data-aos="fade-up" 
-            w={['md', '3xl', '5xl', '7xl', '9xl']}
+            w={['sm', '3xl', '5xl', '7xl', '9xl']}
             minHeight={'90vh'}
             margin='0 auto'
             background='background'
@@ -61,8 +61,7 @@ export default function TeamMemberPage(props) {
                             borderRadius={'50px'}
                             cursor={'pointer'}
                             objectFit='contain'
-                            src={require(`../../assets/${currentTeamMember.photoUrl}`)}
-                            alt='WizArts logo'
+                            src={`../images/${currentTeamMember.photoUrl}`}
                             mb={'3rem'}
                         />
                         <Button 

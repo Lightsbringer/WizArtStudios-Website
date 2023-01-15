@@ -74,7 +74,7 @@ export default function ContactUs(props) {
     <React.Fragment>
         <Box 
             ref={props.innerRef}
-            data-aos="fade-left" 
+            data-aos="fade-bottom" 
             zIndex={'20'}
             background='background'
             position="relative"
@@ -89,7 +89,7 @@ export default function ContactUs(props) {
                 alignItems="center"
                 flexDirection={'column'}>
                 <VStack>
-                    <Text fontSize={['md', 'lg', '3xl', '3xl', '3xl']}align={'left'} color='primary'>{portfolioData.contact_us_heading}</Text>
+                    <Text fontSize={['xl', 'lg', '3xl', '3xl', '3xl']}align={'left'} color='primary'>{portfolioData.contact_us_heading}</Text>
                     <Text fontSize={['md', 'lg', 'xl', 'xl', 'xl']}  align={'left'} color='secondary'>{portfolioData.contact_us_description}</Text>
                 </VStack>
                 <HStack display='flex' 
@@ -152,7 +152,7 @@ export default function ContactUs(props) {
                             width='auto' 
                             objectFit='contain'
                             position='relative  '
-                            borderRadius='100px' src={require(`../../assets/scroll.png`)}/>
+                            borderRadius='100px' src={`images/scroll.png`}/>
                         <Text fontSize={{sm: 'xl', md:'xl', lg: 'xl', xl: '3xl'}} align={'center'} color='primary'>Schedule a call NOW</Text>
                         <Text fontSize={{sm: 'md', md:'md', lg: 'md', xl: 'xl'}}  align={'left'} color='secondary'>Book an appointment with our team through Calendly. We will inform you when your request is successfully processed on our side and accepted</Text>
                         <Box alignContent='center' width='100%'>

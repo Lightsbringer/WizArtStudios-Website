@@ -69,7 +69,7 @@ export default function Navigation(props) {
                         cursor={'pointer'}
                         objectFit='contain'
                         onClick={() => navigate('/')}
-                        src={require(`../../assets/${data.logo_image}`)}
+                        src={`images/${data.logo_image}`}
                         alt='WizArts logo'
                     />
                         <ButtonGroup variant="link" spacing="8">
@@ -117,7 +117,7 @@ export default function Navigation(props) {
                         cursor={'pointer'}
                         objectFit='contain'
                         onClick={() => navigate('/')}
-                        src={require(`../../assets/${data.logo_image}`)}
+                        src={`images/${data.logo_image}`}
                         alt='WizArts logo'
                     />
                     {/* <IconButton
@@ -166,7 +166,7 @@ export default function Navigation(props) {
                         cursor={'pointer'}
                         objectFit='contain'
                         onClick={() => navigate('/')}
-                        src={require(`../../assets/${data.logo_image}`)}
+                        src={`images/${data.logo_image}`}
                         alt='WizArts logo'
                     />
                     {/* <IconButton
@@ -209,7 +209,7 @@ export default function Navigation(props) {
                 scrollBehavior='inside' 
                 closeOnEsc
                 closeOnOverlayClick
-                motionPreset='slideInLeft'>
+                motionPreset='slideInTop'>
                 <DrawerOverlay/>
                 <DrawerContent>
                     <DrawerCloseButton onClick={handleDrawerClose}/>
@@ -222,7 +222,7 @@ export default function Navigation(props) {
                             borderRadius={'50px'}
                             cursor={'pointer'}
                             objectFit='contain'
-                            src={require(`../../assets/${data.logo_image}`)}
+                            src={`images/${data.logo_image}`}
                             alt='WizArts logo'
                         />
                         <VStack spacing="10" justify="center" align="stretch" display="flex">

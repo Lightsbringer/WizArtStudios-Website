@@ -32,7 +32,7 @@ export default function LoadingComponent(props) {
                     width='200px' 
                     objectFit='contain' 
                     borderRadius='100px' 
-                    src={require(`../../assets/${portfolioData.logo_image}`)}/>
+                    src={`images/${portfolioData.logo_image}`}/>
             </Box>
             <Text fontSize="xl" pt='75px' color='secondary'>Entering {portfolioData.name}...</Text>
         </Container>
