@@ -53,7 +53,7 @@ export default function TeamMemberPage(props) {
                             borderRadius={'50px'}
                             cursor={'pointer'}
                             objectFit='contain'
-                            src={`../images/${currentTeamMember.photoUrl}`}
+                            src={require(`../../assets/${currentTeamMember.photoUrl}`)}
                             mb={'3rem'}
                         />
                         <Button 

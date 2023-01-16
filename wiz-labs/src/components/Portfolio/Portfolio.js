@@ -91,7 +91,7 @@ export default function Portfolio(props) {
               <Image
                 opacity={'1'}
                 height='100%'
-                src={`images/${asset}`}
+                src={require(`../../assets/${asset}`)}
                 objectFit="cover"
                 className='image'
                 transition={'.5s ease'}

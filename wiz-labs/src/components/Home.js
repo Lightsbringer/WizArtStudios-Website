@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { 
     Text, 
     Stack, 
@@ -11,20 +11,24 @@ import {
 } from '@chakra-ui/react';
 import Floating from './Animations/Floating';
 import FloatingParticle from './Animations/FloatingParticles';
+import { ImageContext } from '../services/imageContext';
 import './Home.css';
 
 export default function Home(props) {
     const { scrollTo } = props;
     const portfolioData = props.data;
     const windowHeight = window.innerHeight;
-    const isMobile = useBreakpointValue({base: true, sm: true, md: true, lg:false, xl: false});
+    const isMobile = useBreakpointValue({base: true, sm: true, md: true, lg: false, xl: false});
     const floatingParticles = portfolioData.floatingParticleImages;
+    const { getImageByURL } = useContext(ImageContext);
+    const [visibility, setVisibility] = useState('hidden');
+
 
     function shuffle(array) {
         let currentIndex = array.length,  randomIndex;
       
         // While there remain elements to shuffle.
-        while (currentIndex != 0) {
+        while (currentIndex !== 0) {
       
           // Pick a remaining element.
           randomIndex = Math.floor(Math.random() * currentIndex);
@@ -72,6 +76,8 @@ export default function Home(props) {
                         <Button 
                             background='primary' 
                             color='white'
+                            size='lg'
+                            mt='2rem'
                             onClick={(e) => scrollTo(e, 'services')}
                             _hover={{background: 'white', transition: '0.4s', color: 'black'}}>
                                 Learn More
@@ -83,15 +89,19 @@ export default function Home(props) {
                         <Image
                             width={'auto'}
                             objectFit='contain'
-                            src={`images/wiz.png`}
+                            visibility={visibility}
+                            transition={'ease-in-out'}
+                            transitionDuration={'0.5s'}
+                            src={require(`../assets/wiz.png`)}
+                            onLoad={() => setVisibility('visible')}
                         />
                     </Floating>
                 </Stack>
                 
             </Flex>
-            {shuffle(floatingParticles).map((particle, index) => (
+            {/* {shuffle(floatingParticles).map((particle, index) => (
                 <FloatingParticle key={index} data={portfolioData} particle={particle} indexAnimation={index+1}/>
-            ))}
+            ))} */}
         </Box>
 
     )

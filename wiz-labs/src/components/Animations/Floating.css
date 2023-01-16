@@ -10,7 +10,7 @@
     }
 }
 .react-floater-animated {
-    animation: floating 3s ease infinite;
+    animation: floating 6s ease infinite;
     will-change: transform;
     text-align: center;
 }
@@ -27,7 +27,7 @@
 }
 
 .animation-1 > * {
-  animation: fly1 110s linear infinite;
+  animation: fly1 120s linear infinite;
 }
 
 /* .animation-2 > * {
@@ -39,8 +39,15 @@
 } */
 
 @keyframes fly1 {
-  0% {
-    transform: translate(10vw,110vh) rotateZ(0deg);
+  33% {
+    transform: translate(110vw, 15vh) rotateZ(35deg);
+  }
+
+  50% {
+    transform: translate(-120vw, 90vh) rotateZ(300deg);
+  }
+  /* 0% {
+    transform: translate(100vw,110vh) rotateZ(0deg);
   }
 
   12.5% {
@@ -71,7 +78,7 @@
 
   100% {
     transform: translate(-200%,110vh) rotateZ(0deg);
-  }
+  } */
 }
 
 @keyframes fly2 {

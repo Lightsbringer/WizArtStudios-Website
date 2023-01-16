@@ -152,7 +152,7 @@ export default function ContactUs(props) {
                             width='auto' 
                             objectFit='contain'
                             position='relative  '
-                            borderRadius='100px' src={`images/scroll.png`}/>
+                            borderRadius='100px' src={require(`../../assets/scroll.png`)}/>
                         <Text fontSize={{sm: 'xl', md:'xl', lg: 'xl', xl: '3xl'}} align={'center'} color='primary'>Schedule a call NOW</Text>
                         <Text fontSize={{sm: 'md', md:'md', lg: 'md', xl: 'xl'}}  align={'left'} color='secondary'>Book an appointment with our team through Calendly. We will inform you when your request is successfully processed on our side and accepted</Text>
                         <Box alignContent='center' width='100%'>

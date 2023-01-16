@@ -3,12 +3,15 @@ import { Text,
     Box, 
     Image, 
     Heading, 
-    Flex} from '@chakra-ui/react';
+    Flex,
+    useBreakpointValue
+} from '@chakra-ui/react';
 import Floating from '../Animations/Floating';
 
 export default function Services(props) {
   const portfolioData = props.data;
   const [imageHovered, setImageHovered] = useState(null);
+  const isMobile = useBreakpointValue({base: true, sm: true, md: false, lg: false, xl: false});
 
   return (
     <Box 
@@ -46,7 +49,7 @@ export default function Services(props) {
               fontSize={['md', 'xl', '2xl', '2xl', '2xl']}
               color='secondary'
               width='80%'
-              m='0 auto'
+              m='0 auto 1rem auto'
               textAlign='left'>
                 {portfolioData.skills_description}
             </Text>
@@ -58,7 +61,7 @@ export default function Services(props) {
               flexDirection={{base: 'column', sm: 'column', md: 'column', lg: 'row'}}>
                 {portfolioData.services.map((service, i) => (
                   <Box 
-                    width='45%' 
+                    width={isMobile ? '90%': '45%'} 
                     key={i}
                     mb={'3rem'}>
                     <Floating enabled={i !== imageHovered}>
@@ -71,11 +74,15 @@ export default function Services(props) {
                         onMouseOver={() => setImageHovered(i)}
                         onMouseLeave={() => setImageHovered(null)}
                         _hover={{boxShadow: 'inset 0 0 75px yellow, 0 0 100px yellow', transition: '.5s ease'}}
-                        src={`images/${service.image}`}
+                        src={require(`../../assets/${service.image}`)}
                       />
                     </Floating>
-                    <Text fontSize={['lg', 'xl', '2xl', '2xl', '2xl']} align={'center'} color='primary' p={['0.5rem', '1rem']}>{service.type}</Text>
-                    <Text fontSize={['sm', 'xl', 'xl', 'xl', 'xl']}  align={'left'} color='secondary'>{service.description}</Text>
+                    <Heading fontSize={['xl', 'xl', '2xl', '2xl', '2xl']} align={'center'} color='primary' p={['0.5rem', '1rem']}>{service.type}</Heading>
+                    {service.quote 
+                      ? 
+                        <Text fontSize={['md', 'lg', 'lg', 'lg', 'lg']}  align={'left'} fontStyle='italic' mb='1rem' color='secondary'>{service.quote}</Text>
+                    : null}
+                    <Text fontSize={['md', 'xl', 'xl', 'xl', 'xl']}  align={'left'} color='secondary'>{service.description}</Text>
                   </Box>
                 ))}
             </Flex>

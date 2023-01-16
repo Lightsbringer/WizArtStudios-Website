@@ -85,7 +85,7 @@ export default function Navigation(props) {
                         cursor={'pointer'}
                         objectFit='contain'
                         onClick={() => navigate('/')}
-                        src={`${baseUrl}/images/${data.logo_image}`}
+                        src={require(`../../assets/${data.logo_image}`)}
                     />
                         <ButtonGroup variant="link" spacing="8">
                             {data.navLinks.map((item) => (
@@ -132,7 +132,7 @@ export default function Navigation(props) {
                         cursor={'pointer'}
                         objectFit='contain'
                         onClick={() => navigate('/')}
-                        src={`${baseUrl}/images/${data.logo_image}`}
+                        src={require(`../../assets/${data.logo_image}`)}
                     />
                     {/* <IconButton
                         variant="outline"
@@ -180,7 +180,7 @@ export default function Navigation(props) {
                         cursor={'pointer'}
                         objectFit='contain'
                         onClick={() => navigate('/')}
-                        src={`${baseUrl}/images/${data.logo_image}`}
+                        src={require(`../../assets/${data.logo_image}`)}
                     />
                     {/* <IconButton
                         variant="ghost"
@@ -235,7 +235,7 @@ export default function Navigation(props) {
                             borderRadius={'50px'}
                             cursor={'pointer'}
                             objectFit='contain'
-                            src={`${baseUrl}/images/${data.logo_image}`}
+                            src={require(`../../assets/${data.logo_image}`)}
                         />
                         <VStack spacing="10" justify="center" align="stretch" display="flex">
                             {data.navLinks.map((item) => (

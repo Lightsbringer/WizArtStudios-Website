@@ -7,6 +7,8 @@ import Navigation from './components/Navigation/Navigation';
 import Team from './components/Team/Team';
 import TeamMemberPage from './components/Team/TeamMemberPage';
 import portfolioData from './portfolio_data';
+import websiteMedia from './websiteAssetData.json';
+import ImageContextProvider from './services/imageContext';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import ScrollToTop from './components/Scrollbar/ScrollToTop';
 import Footer from './components/Footer/Footer';
@@ -15,56 +17,57 @@ import Services from './components/Services/Services';
 import ContactUs from './components/Contacts/ContactUs';
 import LoadingComponent from './components/LoadingComponent/LoadingComponent';
 import Home from './components/Home';
-import axios from 'axios';
 import './App.css';
 
 export const App = () => {
   const [loading, setLoading] = useState(true);
+  const [loaderError, setLoaderError] = useState(false);
   const homeRef = useRef(null);
   const servicesRef = useRef(null);
   const teamRef = useRef(null);
   const portfolioRef = useRef(null);
   const contactRef = useRef(null);
   const { pathname } = useLocation();
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  useEffect(() => {
-    if(loading) {
-      // this simulates an async action, after which the component will render the content
-      demoAsyncCall().then(() => setLoading(false));
-    }
-  }, [loading])
-
   // useEffect(() => {
   //   if(loading) {
-  //     setTimeout(() => {
-  //       createImageRepository()
-  //       .then((response) => cacheImages(response)) 
-  //       .then(() => setLoading(false));
-  //     }, 1000);
+  //     // this simulates an async action, after which the component will render the content
+  //     demoAsyncCall().then(() => setLoading(false));
   //   }
-  // }, [loading]);
+  // }, [loading])
 
-  // const cacheImages = async (files) => {
-  //   const imagePromises = await files.map((file) => {
-  //     return new Promise((resolve, reject) => {
-  //       const image = new Image();
+  useEffect(() => {
+    if(loading) {
+      preloadImages() 
+        .then((response) => setLoading(false))
+        .catch((error) => setLoaderError(true));
+    }
+  }, [loading]);
 
-  //       image.src = `images/${file}`;
-  //       image.crossOrigin='anonymous';
-  //       image.onload = resolve(image);
-  //       image.onerror = reject();
-  //     })
-  //   });
+  const preloadImages = async () => {
+    const imagePromises = websiteMedia.websiteMedia.map((fileUrl) => {
+      return new Promise((resolve, reject) => {
+        const image = new Image();
 
-  //   await Promise.all(imagePromises)
-  //     .then((images) => {
-  //       setImages(images);
-  //     });
-  // }
+        image.src = `./assets/${fileUrl}`;
+        image.crossOrigin='anonymous';
+        image.onload = resolve(image);
+        image.onerror = reject();
+      })
+    });
+
+    await Promise.all(imagePromises)
+      .then((images) => {
+        setImages(images);
+      }).catch((err) => {
+        setImages([]);
+      });
+}
 
   // const createImageRepository = () => {    
   //   return new Promise((resolve, reject) => {
@@ -79,9 +82,9 @@ export const App = () => {
   //   })
   // }
 
-  const demoAsyncCall = () => {
-    return new Promise((resolve) => setTimeout(() => resolve(), 2500));
-  }
+  // const demoAsyncCall = () => {
+  //   return new Promise((resolve) => setTimeout(() => resolve(), 2500));
+  // }
 
   const scrollTo = (event, stringRoute = '') => {
     event.preventDefault();
@@ -114,7 +117,7 @@ export const App = () => {
   }
 
   return (
-    <>
+    <ImageContextProvider value={images}>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <div className="App">
         {      
@@ -159,6 +162,6 @@ export const App = () => {
         <Carousel data={portfolioData}/>
         */}
       </div>
-    </>
+    </ImageContextProvider>
   );
 }

@@ -22,7 +22,7 @@ const NotFoundPage = () => {
             <Image
                 width={'xl'}
                 objectFit='contain'
-                src={`images/wiz.png`}
+                src={require(`../../assets/wiz.png`)}
             />
             <Text fontSize={['sm', 'md', 'xl', 'xl', '2xl']}  align={'center'} color='secondary'>Where you heading to? <br/> There's nothing here for a tiny mortal!</Text>
             <Button 

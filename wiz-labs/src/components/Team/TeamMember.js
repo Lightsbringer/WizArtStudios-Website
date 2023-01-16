@@ -99,7 +99,12 @@ export default function TeamMember(props) {
                         {getComponent(1)}
                     </div>
                 </div>
-                <Text fontSize='sm' p='0.5rem' color='white' fontStyle={'italic'}>{value}</Text>
+                <Text 
+                  fontSize={['md', 'md', 'lg', 'lg', 'xl']} 
+                  p='0.5rem' 
+                  color='secondary' 
+                  fontStyle={'italic; bold;'} 
+                  _hover={{textDecoration: 'underline'}}>{value}</Text>
             </div>
         </React.Fragment>
     )

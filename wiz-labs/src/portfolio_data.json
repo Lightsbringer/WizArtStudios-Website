@@ -6,10 +6,10 @@
     "logo_tab": "",
     "imagebaseurl":"https://rbhatia46.github.io/",
     "name": "WizArt Studios",
-    "motto": "Let us be the magic that your team needs.",
-    "hook": "Build your magical idea with the help of our skilled digital artists, marketing specialists and web developers.",
-    "team_description": "The team is composed of young, talented and hardworking apprentices. Each of us appeared out of thin air with the sole idea to be pro-active, energetic and task-driven towards achieving the upmost value for the customer. Artists, developers, marketing agents, sorcerers, mages, dwarfs and other magical beasts line up in our headquarters ready to work towards your enlightening ideas. Working with us will ensure that you will align all the ideas flowing through your head and choose the right path for your upcoming product/service. A few magic words and... POOF. Voilà, there it is!",
-    "skills_description": "Everyday we strive to add new skills to our carefully assembled set of capabilities. Below is a list of some of them. The special wizardry can only be discussed in a private call with the main mages.",
+    "motto": "Have you ever stumbled upon an idea and been unable to process it in terms of an image?",
+    "hook": "Well, we got a team of professional artists who have helped a lot of such ideas turn into reality.",
+    "team_description": "The team is composed of talented, hardworking and well-experienced apprentices who have been in the NFT space for far too long to understand what attracts an average Solana Investor, the result of which we have won multiple art contests (Communi3 being the biggest) and made an art piece for Elixir as well. Working with us will ensure that you will align all the ideas flowing through your head and choose the right path for your upcoming product/service. A few magic words and... POOF. Voilà, there it is!",
+    "skills_description": "We offer everything an NFT Project needs to attract potential investors. If at any point in time you feel overwhelmed by looking at so many options, don't worry. Take a long breath and book an appointment as the special wizardry will only happen there.",
     "routes": [ "", "/our-services", "/team", "portfolio", "contact-us" ],
     "contact_us_heading": "We would love to hear more from you",
     "contact_us_description": "Feel free to reach out to us at anytime and schedule a meeting to talk about the future of your business. ",
@@ -78,8 +78,8 @@
       },
       {
         "name": "Kriko",
-        "short_description": "A mag that kinda loves gadgets and magic powders. Be cautious around him",
-        "role": "Full Stack Web developer, Dev Team Lead",
+        "short_description": "Loves gadgets and magic powders. Be cautious around him",
+        "role": "Web Dev, Dev Team Lead",
         "description": "I am the coder of the group. I always strive to expand my field of knowledge further and accept new endevours in the world of programming. My joints are fat like my commits. Main focus is on Javascript stack and soon more WEB3 solution as well. Sleep schedule is ruined since 1998.",
         "discord": "",
         "twitter": "",
@@ -130,12 +130,12 @@
       {
         "type": "NFT Art",
         "image": "nftart.png",
-        "description": "Our professional artists will work with you to develop and design your idea into a lucrative NFT."
+        "description": "Provide the vision to our artists and they will work with you to develop and design your idea into a lucrative NFT. Yeah, that's all they need!"
       },
       {
         "type": "Custom Art",
         "image": "customart.png",
-        "description": "Express your concept ideas and put the boring blank page to life by having our artists produce a one-of-a-kind personalized piece for you."
+        "description": "In this Web3 world, how you represent yourself matters a lot. And your socials is your first encounter with the Web3 World. Want to look your best? Our Artists will design a custom 1/1 PFP and Banner and Art for you according to your taste"
       },
       {
         "type": "Social Media Assets",
@@ -145,7 +145,8 @@
       {
         "type": "Branding Identity",
         "image": "branding.png",
-        "description": "Looking to bring your vision to life? Or your old one got boring? Our team can make the right branding assets for your vision."
+        "quote": "Your brand is the single most important investment you can make in your business- Steve Forbes",
+        "description": "We can't argue with that, can we? Since \"THE BRAND\" of your project is so important to you, we will provide you with the best Branding Assets which suit your vision."
       }
     ],
     "portfolio":{

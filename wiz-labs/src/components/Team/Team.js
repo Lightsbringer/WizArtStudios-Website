@@ -61,7 +61,7 @@ export default function Team(props) {
                         m={'-150px auto'}
                         objectFit='contain' 
                         borderRadius='100px' 
-                        src={`images/tower.png`}/>
+                        src={require(`../../assets/tower.png`)}/>
                     </Floating>
                   </div>
                   {portfolioData.theTeam.map((teamMember, index) => (
@@ -77,7 +77,7 @@ export default function Team(props) {
                             w={['80px', '125px', '175px', '225px', '250px']} 
                             objectFit='contain' 
                             borderRadius='50%' 
-                            src={`images/${teamMember.photoUrl}`}/>
+                            src={require(`../../assets/${teamMember.photoUrl}`)}/>
                         </Box>
 
                         <Box sx={styles.card} 
@@ -89,9 +89,9 @@ export default function Team(props) {
                           flexDirection='column' 
                           justifyContent='center' 
                           alignItems={'center'}>
-                          <Heading as='h4' size='md' color='white'>{teamMember.name}</Heading>
-                          <Text fontSize='sm' p='0 0.5rem' color='white' fontStyle={'italic'}>{teamMember.role}</Text>
-                          {!isMobileDevice ? <Text fontSize='sm' p='0 1rem' color='secondary'>{teamMember.short_description}</Text> : null}
+                          {/* <Heading as='h4' size='md' color='white'>{teamMember.name}</Heading> */}
+                          <Text fontSize={['md', 'md', 'lg', 'lg', 'xl']} p='0 0.5rem' color='white' fontStyle={'italic'}>{teamMember.role}</Text>
+                          {!isMobileDevice ? <Text fontSize={['sm', 'sm', 'md', 'md', 'lg']} p='0 1rem' color='secondary'>{teamMember.short_description}</Text> : null}
                           <Flex direction='row' align='center' justify='center' gap='2'>
                             {
                               teamMember.discord ? 
@@ -129,12 +129,12 @@ export default function Team(props) {
                               w={'125px'} 
                               objectFit='contain' 
                               borderRadius='50%' 
-                              src={`images/${teamMember.photoUrl}`}/>
+                              src={require(`../../assets/${teamMember.photoUrl}`)}/>
                           </Box>
 
                           <Box sx={styles.card} 
-                            h={['80px', '125px', '175px', '225px', '250px']}
-                            w={['80px', '125px', '175px', '225px', '250px']}
+                            h={['125', '125px', '175px', '225px', '250px']}
+                            w={['125', '125px', '175px', '225px', '250px']}
                             borderRadius='51%' 
                             borderColor='primary' 
                             display='flex' 
