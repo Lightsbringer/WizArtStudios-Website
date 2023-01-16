@@ -29,6 +29,8 @@ export default function Navigation(props) {
     const [showDrawer, setShowDrawer] = useState(false);
     const isHome = pathname === '/';
     const navigate = useNavigate();
+    const environment = process.env.NODE_ENV;
+    const baseUrl = environment === 'production' ? process.env.REACT_APP_API_PROD_URL : process.env.REACT_APP_API_DEV_URL;
 
     const handleOpenDrawer = () => {
         setShowDrawer(true);
@@ -38,10 +40,24 @@ export default function Navigation(props) {
         setShowDrawer(false);
     }
 
+    const handleDrawerClick = (event) => {
+        event.preventDefault();
+
+        handleDrawerClose();
+
+        setTimeout(() => {
+            if(isHome) {
+                scrollTo(event);
+            } else {
+                navigateToHomeSection(event);
+            }
+        }, 1000);
+    }
+
     const navigateToHomeSection = (e) => {
         setTimeout(() => {
             scrollTo(e);
-        }, 500);
+        }, 1000);
         navigate('/'); 
     }
 
@@ -69,8 +85,7 @@ export default function Navigation(props) {
                         cursor={'pointer'}
                         objectFit='contain'
                         onClick={() => navigate('/')}
-                        src={`images/${data.logo_image}`}
-                        alt='WizArts logo'
+                        src={`${baseUrl}/images/${data.logo_image}`}
                     />
                         <ButtonGroup variant="link" spacing="8">
                             {data.navLinks.map((item) => (
@@ -117,8 +132,7 @@ export default function Navigation(props) {
                         cursor={'pointer'}
                         objectFit='contain'
                         onClick={() => navigate('/')}
-                        src={`images/${data.logo_image}`}
-                        alt='WizArts logo'
+                        src={`${baseUrl}/images/${data.logo_image}`}
                     />
                     {/* <IconButton
                         variant="outline"
@@ -166,8 +180,7 @@ export default function Navigation(props) {
                         cursor={'pointer'}
                         objectFit='contain'
                         onClick={() => navigate('/')}
-                        src={`images/${data.logo_image}`}
-                        alt='WizArts logo'
+                        src={`${baseUrl}/images/${data.logo_image}`}
                     />
                     {/* <IconButton
                         variant="ghost"
@@ -222,12 +235,11 @@ export default function Navigation(props) {
                             borderRadius={'50px'}
                             cursor={'pointer'}
                             objectFit='contain'
-                            src={`images/${data.logo_image}`}
-                            alt='WizArts logo'
+                            src={`${baseUrl}/images/${data.logo_image}`}
                         />
                         <VStack spacing="10" justify="center" align="stretch" display="flex">
                             {data.navLinks.map((item) => (
-                                <Button key={item} size='lg' value={item} onClick={(e) => isHome ? scrollTo(e) : navigateToHomeSection(e)} 
+                                <Button key={item} size='lg' value={item} onClick={handleDrawerClick} 
                                 variant='link' color='secondary' _hover={{background: 'white', transition: '0.4s', color: 'black'}}>{item}</Button>
                             ))}
                         </VStack>

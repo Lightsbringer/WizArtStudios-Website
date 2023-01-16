@@ -36,13 +36,23 @@ export default function Portfolio(props) {
       background='secondary'
       zIndex={'25'}
       position="relative"
-      height={['3xl','4xl','5xl','5xl','5xl',]}
+      height={['3xl','4xl','6xl','6xl','6xl',]}
       max-width='2000px'
-      alignItems='center'>
+      alignItems='center'
+      _after={{content:`""`, 
+        position: 'absolute',
+        display: 'block',
+        bottom: '-1px',
+        left: '0',
+        right: '0',
+        paddingBottom: '7%',
+        background: '#522336',
+        clipPath: 'polygon(0 30%,0 100%,100% 100%)'
+      }}>
       <Flex 
         display='flex' 
         justifyContent="space-evenly" 
-        w={['100%', '2xl', '4xl', '6xl', '9xl']}
+        w={['100%', '2xl', '3xl', '6xl', '9xl']}
         flexDirection={'column'} 
         alignItems='center'
         h='100%'
@@ -67,7 +77,7 @@ export default function Portfolio(props) {
           {assets.map((asset, i) => (
           <Box 
               key={i}
-              minWidth={['100%','75%','50%','25%','25%',]}
+              minWidth={['100%','50%','50%','25%','25%',]}
               onClick={() => handleGridClick(portfolioData.workCategories[i])}
               onMouseOver={handleOnMouseHover}
               onMouseLeave={handleOnMouseLeave}

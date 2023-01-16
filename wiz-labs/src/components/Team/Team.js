@@ -29,10 +29,10 @@ export default function Team(props) {
     <Box 
       ref={props.innerRef}
       data-aos="fade-up" 
-      w={['100%', 'lg', '100%', '100%', '100%']}
+      w={'100%'}
       position="relative"
       zIndex={'23'}
-      height={['4xl','5xl','7xl','7xl','7xl']}
+      height={['5xl','5xl','7xl','8xl','8xl']}
       m={'0 auto'}>
         <Flex 
           display='flex' 
@@ -120,9 +120,9 @@ export default function Team(props) {
                   ))}
                   </div>
                 :
-                  <Grid templateColumns='repeat(2, 150px)' gap={3} justifyContent='center' mt={'50px'}>
-                    {portfolioData.theTeam.reverse().map((teamMember, index) => (
-                        <TeamMember value={teamMember.name}>
+                  <Grid templateColumns='repeat(2, 125px)' gap={5} justifyContent='center' mt={'50px'}>
+                    {portfolioData.theTeam.map((teamMember, index) => (
+                        <TeamMember value={teamMember.name} key={index}>
                           <Box borderRadius='100px'>
                             <Image 
                               h={'125px'}

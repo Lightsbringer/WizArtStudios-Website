@@ -14,7 +14,6 @@ import NotFoundPage from './components/NotFound/NotFoundPage';
 import Services from './components/Services/Services';
 import ContactUs from './components/Contacts/ContactUs';
 import LoadingComponent from './components/LoadingComponent/LoadingComponent';
-import FloatingParticle from './components/Animations/FloatingParticles';
 import Home from './components/Home';
 import axios from 'axios';
 import './App.css';
@@ -27,8 +26,6 @@ export const App = () => {
   const portfolioRef = useRef(null);
   const contactRef = useRef(null);
   const { pathname } = useLocation();
-  const environment = process.env.NODE_ENV;
-  const baseUrl = environment === 'production' ? process.env.REACT_APP_API_PROD_URL : process.env.REACT_APP_API_DEV_URL;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -139,7 +136,6 @@ export const App = () => {
                       <Team innerRef={teamRef} data={portfolioData}/>
                       <Portfolio innerRef={portfolioRef} data={portfolioData}/>
                       <ContactUs innerRef={contactRef} data={portfolioData}/>
-                      <FloatingParticle data={portfolioData}/>
                       <ScrollToTop/>
                   </React.Fragment>
               }

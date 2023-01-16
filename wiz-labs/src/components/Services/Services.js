@@ -4,25 +4,28 @@ import { Text,
     Image, 
     Heading, 
     Flex} from '@chakra-ui/react';
-import Aos from 'aos';
 import Floating from '../Animations/Floating';
-import 'aos/dist/aos.css';
 
 export default function Services(props) {
   const portfolioData = props.data;
   const [imageHovered, setImageHovered] = useState(null);
 
-  useEffect(() => {
-    Aos.init({duration: 1500});
-  }, [])
-
   return (
     <Box 
       ref={props.innerRef}
-      data-aos="fade-up" 
       zIndex={'22'}
       position="relative"
       background='darkBackground'
+      _after={{content:`""`, 
+        position: 'absolute',
+        display: 'block',
+        bottom: '-1px',
+        left: '0',
+        right: '0',
+        paddingBottom: '7%',
+        background: '#522336',
+        clipPath: 'polygon(0 50%,0 100%,100% 100%)'
+      }}
       variant='div'>
         <Flex 
           display='flex' 

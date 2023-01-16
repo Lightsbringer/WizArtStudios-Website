@@ -16,7 +16,7 @@ export default function Footer(props) {
         position='relative'
         zIndex='28'
         justifyContent='space-evenly'
-        height='200px' 
+        height='240px' 
         alignItems='center'
         flexDirection='column'
         width={'100%'}

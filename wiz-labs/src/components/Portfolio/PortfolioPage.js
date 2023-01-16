@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { Box, Flex, Text, Image } from '@chakra-ui/react';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
 
 export default function PortfolioPage(props) {
     const portfolioData = props.data;
@@ -23,10 +21,6 @@ export default function PortfolioPage(props) {
         // method 2: redirect to home immediately
     }, [urlProps])
 
-    useEffect(() => {
-        Aos.init({duration: 1500});
-    }, [])
-
     // const returnRandomImage = () => {
     //     const number = Math.floor(Math.random() * (currentProjects.length - 1 + 1) + 1);
 
@@ -44,11 +38,11 @@ export default function PortfolioPage(props) {
                 <>
                     {currentProjects.map((project, index) => (
                         <Flex
+                            key={index}
                             display='flex'
                             flexDirection={index % 2 === 0 ? 'row' : 'row-reverse'}
                             justifyContent='center'
                             alignItems='center'
-                            data-aos={index % 2 === 0 ? 'fade-left' : 'fade-right'}
                             flexWrap={'wrap'}
                             gap={10}
                             pt={'3rem'}

@@ -4,27 +4,19 @@ import "./Floating.css";
 
 function FloatingParticle(props) {
     const portfolioData = props.data;
+    const { particle, indexAnimation } = props;
     const [rendered, isRendered] = useState(false);
     const [currentParticle, setCurrentParticle] = useState(null);
 
     useEffect(() => {
         isRendered(true);
-        getFloatingItem();
-    }, [rendered])
-
-    setInterval(() => {
-        getFloatingItem();
-    }, 121000);
-
-    const getFloatingItem = () => {
-        const item = portfolioData.floatingParticleImages[Math.floor(Math.random()*portfolioData.floatingParticleImages.length)];
-        setCurrentParticle(item);
-    }
+        setCurrentParticle(particle);
+    }, [rendered]);
 
     return (
         <React.Fragment>
             {currentParticle ? 
-                <div className='particle'>
+                <div className={`particle animation-${indexAnimation}`}>
                     <Image
                         boxSize={['100px', '130px', '170px', '200px', '220px']}
                         m='0 auto'

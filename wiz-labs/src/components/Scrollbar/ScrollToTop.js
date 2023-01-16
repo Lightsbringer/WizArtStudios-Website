@@ -4,7 +4,7 @@ import { IconButton, useBreakpointValue } from '@chakra-ui/react';
 
 const ScrollToTop = () => {
     const [visible, setVisible] = useState(false);
-    const isMobile = useBreakpointValue({base: true, sm: true, md: false, xl: false});
+    const isMobile = useBreakpointValue({base: true, sm: true, md: true, lg: false, xl: false});
 
     const toggleVisible = () => {
         const scrolled = document.documentElement.scrollTop;

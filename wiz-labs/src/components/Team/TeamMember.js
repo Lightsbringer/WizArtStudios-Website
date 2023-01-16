@@ -1,5 +1,6 @@
 import React, {useState, useMemo} from 'react';
 import { useNavigate } from "react-router-dom";
+import { Text } from '@chakra-ui/react';
 
 export default function TeamMember(props) {
     const {
@@ -37,7 +38,6 @@ export default function TeamMember(props) {
           zIndex: `${cardZIndex}`,
         },
         flipper: {
-          height: '100%',
           position: 'relative',
           width: '100%',
         },
@@ -99,6 +99,7 @@ export default function TeamMember(props) {
                         {getComponent(1)}
                     </div>
                 </div>
+                <Text fontSize='sm' p='0.5rem' color='white' fontStyle={'italic'}>{value}</Text>
             </div>
         </React.Fragment>
     )

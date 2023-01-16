@@ -3,9 +3,6 @@ import { Image, Box, Flex, VStack, Text, List, ListItem, ListIcon, Button, Butto
 import { FaDiscord, FaTwitter, FaLinkedin, FaInstagram, FaTiktok } from 'react-icons/fa';
 import { GiCrystalWand } from 'react-icons/gi';
 import { useParams } from 'react-router-dom';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
-
 
 export default function TeamMemberPage(props) {
     const portfolioData = props.data;
@@ -24,10 +21,6 @@ export default function TeamMemberPage(props) {
         // method 2: redirect to home immediately
     }, [urlProps])
 
-    useEffect(() => {
-        Aos.init({duration: 1500});
-      }, [])
-
     const handleSocialMediaClick = (url) => {
         window.open(url, '_blank', 'noopener,noreferrer');
     }
@@ -39,8 +32,7 @@ export default function TeamMemberPage(props) {
     // TODO Replace VStack with Flex to solve responsiveness
     return (
         <Box
-            data-aos="fade-up" 
-            w={['sm', '3xl', '5xl', '7xl', '9xl']}
+            w={['100%', '100%', '100%', '7xl', '9xl']}
             minHeight={'90vh'}
             margin='0 auto'
             background='background'
