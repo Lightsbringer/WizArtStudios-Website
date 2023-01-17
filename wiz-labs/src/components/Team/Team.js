@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import TeamMember from './TeamMember';
-import { Image, Box, Text, Heading, Flex, IconButton, useBreakpointValue, Grid, Button } from '@chakra-ui/react';
+import { Image, Box, Text, Heading, Flex, IconButton, useBreakpointValue, Grid } from '@chakra-ui/react';
 import { FaDiscord, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import Floating from '../Animations/Floating';
 import Aos from 'aos';
@@ -32,7 +32,7 @@ export default function Team(props) {
       w={'100%'}
       position="relative"
       zIndex={'23'}
-      height={['5xl','5xl','8xl','8xl','8xl']}
+      height={['5xl','5xl','7xl','8xl','8xl']}
       m={'0 auto'}>
         <Flex 
           display='flex' 
@@ -42,9 +42,9 @@ export default function Team(props) {
           alignItems='center'
           m={'3rem auto'}>
           <Box>
-            <Heading fontSize={['3xl', '3xl', '4xl', '4xl', '5xl']} align={'center'} color='primary' mb={4} >Meet Our Team</Heading>
+            <Heading fontSize={['xl', 'lg', '2xl', '3xl', '4xl']} align={'center'} color='primary' mb={4} >Meet Our Team</Heading>
               <Text 
-                fontSize={['md', 'lg', 'xl', 'xl', 'xl']}
+                fontSize={['sm', 'sm', 'xl', 'xl', 'xl']}
                 align={'left'} 
                 width='80%'
                 m='0 auto'
@@ -57,13 +57,11 @@ export default function Team(props) {
                   <div className='circle'>
                     <Floating enabled={true}>
                       <Image
-                        alt='tower_image'
                         height={['200px', 'sm', 'md', 'xl', 'xl']}
                         m={'-150px auto'}
-                        loading='lazy'
                         objectFit='contain' 
                         borderRadius='100px' 
-                        src={require(`../../assets/tower.jpeg`)}/>
+                        src={require(`../../assets/tower.png`)}/>
                     </Floating>
                   </div>
                   {portfolioData.theTeam.map((teamMember, index) => (
@@ -74,13 +72,11 @@ export default function Team(props) {
                       }}>
                       <TeamMember value={teamMember.name}>
                         <Box borderRadius='100px'>
-                          <Image
-                            alt={`team_member_${index}`}
+                          <Image 
                             h={['80px', '125px', '175px', '225px', '250px']}
                             w={['80px', '125px', '175px', '225px', '250px']} 
                             objectFit='contain' 
                             borderRadius='50%' 
-                            loading='lazy'
                             src={require(`../../assets/${teamMember.photoUrl}`)}/>
                         </Box>
 
@@ -94,7 +90,7 @@ export default function Team(props) {
                           justifyContent='center' 
                           alignItems={'center'}>
                           {/* <Heading as='h4' size='md' color='white'>{teamMember.name}</Heading> */}
-                          <Text fontSize={['md', 'md', 'lg', 'lg', 'xl']} p='0 0.5rem' color='white'>{teamMember.role}</Text>
+                          <Text fontSize={['md', 'md', 'lg', 'lg', 'xl']} p='0 0.5rem' color='white' fontStyle={'italic'}>{teamMember.role}</Text>
                           {!isMobileDevice ? <Text fontSize={['sm', 'sm', 'md', 'md', 'lg']} p='0 1rem' color='secondary'>{teamMember.short_description}</Text> : null}
                           <Flex direction='row' align='center' justify='center' gap='2'>
                             {
@@ -129,11 +125,9 @@ export default function Team(props) {
                         <TeamMember value={teamMember.name} key={index}>
                           <Box borderRadius='100px'>
                             <Image 
-                              alt={`team_member_${index}`}
                               h={'125px'}
                               w={'125px'} 
                               objectFit='contain' 
-                              loading='lazy'
                               borderRadius='50%' 
                               src={require(`../../assets/${teamMember.photoUrl}`)}/>
                           </Box>
@@ -147,8 +141,8 @@ export default function Team(props) {
                             flexDirection='column' 
                             justifyContent='center' 
                             alignItems={'center'}>
-                            <Heading as='h4' size='xs' color='white'>{teamMember.name}</Heading>
-                            <Text fontSize='xs' p='0 0.5rem' color='white'>{teamMember.role}</Text>
+                            <Heading as='h4' size='md' color='white'>{teamMember.name}</Heading>
+                            <Text fontSize='sm' p='0 0.5rem' color='white' fontStyle={'italic'}>{teamMember.role}</Text>
                             {!isMobileDevice ? <Text fontSize='sm' p='0 1rem' color='secondary'>{teamMember.short_description}</Text> : null}
                             <Flex direction='row' align='center' justify='center' gap='2'>
                               {
@@ -177,17 +171,6 @@ export default function Team(props) {
                     ))}
                   </Grid>
                 }
-              <a href={portfolioData.calendly} target="_blank" rel="noopener noreferrer">
-                <Button 
-                  color='white' 
-                  mt={5}
-                  size="lg"
-                  variant='solid' 
-                  background={"primary"} 
-                  _hover={{background: 'white', transition: '0.4s', color: 'black'}}>
-                      Book a Call
-                </Button>
-              </a>
           </Box>
       </Flex>
     </Box>

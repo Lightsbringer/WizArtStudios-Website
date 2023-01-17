@@ -18,7 +18,6 @@ function FloatingParticle(props) {
             {currentParticle && indexAnimation === 1 ? 
                 <div className={`particle animation-${indexAnimation}`}>
                     <Image
-                        alt='particles'
                         boxSize={['100px', '130px', '170px', '200px', '220px']}
                         m='0 auto'
                         objectFit='contain'

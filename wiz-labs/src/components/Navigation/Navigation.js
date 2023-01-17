@@ -13,28 +13,11 @@ import {
     DrawerContent,
     DrawerBody,
     DrawerCloseButton,
-    DrawerOverlay,
-    extendTheme,
-    ChakraProvider
+    DrawerOverlay
   } from '@chakra-ui/react';
 import { FiMenu } from 'react-icons/fi';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './Navigation.css';
-
-const theme = extendTheme({
-    components:{
-      Drawer:{
-        parts: ['dialog', 'header', 'body'],
-        variants: {
-          primary: {
-            dialog: {
-              background: '#ecc49c', 
-            }
-          }
-        },
-      }
-    }
-  })
   
 export default function Navigation(props) {
     const { data , scrollTo} = props;
@@ -68,13 +51,13 @@ export default function Navigation(props) {
             } else {
                 navigateToHomeSection(event);
             }
-        }, 700);
+        }, 1000);
     }
 
     const navigateToHomeSection = (e) => {
         setTimeout(() => {
             scrollTo(e);
-        }, 700);
+        }, 1000);
         navigate('/'); 
     }
 
@@ -87,7 +70,7 @@ export default function Navigation(props) {
             zIndex={'20'}
             position="relative"
             background={"darkBackground"}
-            p={{base: '5', md: '6', lg: '8', xl: '10'}}
+            p={{base: '2', md: '4', lg: '6', xl: '6'}}
             boxShadow={useColorModeValue('sm', 'sm-dark')}>
             {isDesktop ? (
                 <Flex
@@ -96,8 +79,7 @@ export default function Navigation(props) {
                     justifyContent="space-between"
                     alignItems="center">
                     <Image
-                        alt='logo_image'
-                        width={'100px'}
+                        maxWidth={'100px'}
                         height={'100%'}
                         borderRadius={'50px'}
                         cursor={'pointer'}
@@ -116,16 +98,13 @@ export default function Navigation(props) {
                                         {item}
                                 </Button>
                             ))}
-                            <a href={data.calendly} target="_blank" rel="noopener noreferrer">
-                                <Button 
-                                    color='white' 
-                                    size='lg'
-                                    variant='solid' 
-                                    background={"primary"} 
-                                    _hover={{background: 'white', transition: '0.4s', color: 'black'}}>
-                                        Let's chat
-                                </Button>
-                            </a>
+                            <Button 
+                                color='white' 
+                                variant='solid' 
+                                background={"primary"} 
+                                _hover={{background: 'white', transition: '0.4s', color: 'black'}}>
+                                    Enquire Now
+                            </Button>
                         </ButtonGroup>
                         {/* <IconButton
                             variant="outline"
@@ -147,9 +126,8 @@ export default function Navigation(props) {
                     justifyContent="space-between"
                     alignItems="center">
                     <Image
-                        alt='logo_image'
-                        width={'100px'}
-                        height={'100px'}
+                        maxWidth={'100px'}
+                        maxHeight={'100px'}
                         borderRadius={'50px'}
                         cursor={'pointer'}
                         objectFit='contain'
@@ -171,7 +149,7 @@ export default function Navigation(props) {
                     <ButtonGroup variant="link" spacing="8">
                         {data.navLinks.map((item) => (
                             <Button 
-                                size='lg' 
+                                size='sm' 
                                 key={item} 
                                 onClick={(e) => isHome ? scrollTo(e) : navigateToHomeSection(e)} 
                                 value={item} 
@@ -179,16 +157,13 @@ export default function Navigation(props) {
                                     {item}
                             </Button>
                         ))}
-                        <a href={data.calendly} target="_blank" rel="noopener noreferrer">
-                            <Button 
-                                color='white' 
-                                size='lg'
-                                variant='solid' 
-                                background={"primary"} 
-                                _hover={{background: 'white', transition: '0.4s', color: 'black'}}>
-                                        Let's chat
-                            </Button>
-                        </a>
+                        <Button 
+                            color='white' 
+                            variant='solid' 
+                            background={"primary"} 
+                            _hover={{background: 'white', transition: '0.4s', color: 'black'}}>
+                                Enquire Now
+                        </Button>
                     </ButtonGroup>
                 </Flex>
             ) : isMobile ? (
@@ -199,9 +174,8 @@ export default function Navigation(props) {
                     justifyContent="space-between"
                     alignItems="center">
                     <Image
-                        alt='logo_image'
-                        width={'70px'}
-                        height={'70px'}
+                        maxWidth={'100px'}
+                        maxHeight={'100px'}
                         borderRadius={'50px'}
                         cursor={'pointer'}
                         objectFit='contain'
@@ -221,16 +195,14 @@ export default function Navigation(props) {
                         aria-label="Open Menu"
                         /> */}
                     <ButtonGroup variant="link" spacing="8" alignItems='center'>
-                        <a href={data.calendly} target="_blank" rel="noopener noreferrer">
-                            <Button 
-                                size='md'
-                                color='white' 
-                                variant='solid' 
-                                background={"primary"} 
-                                _hover={{background: 'white', transition: '0.4s', color: 'black'}}>
-                                        Let's chat
-                            </Button>
-                        </a>
+                        <Button 
+                            size='sm'
+                            color='white' 
+                            variant='solid' 
+                            background={"primary"} 
+                            _hover={{background: 'white', transition: '0.4s', color: 'black'}}>
+                                Enquire Now
+                        </Button>
                         <IconButton
                             variant="ghost"
                             color='white'
@@ -242,42 +214,38 @@ export default function Navigation(props) {
                 </Flex>
             ) : null}
 
-            <ChakraProvider theme={theme}>
-                <Drawer 
-                    isOpen={showDrawer} 
-                    placement='right'
-                    isFullHeight 
-                    size='full'
-                    scrollBehavior='inside' 
-                    closeOnEsc
-                    variant={"primary"}
-                    closeOnOverlayClick
-                    motionPreset='slideInTop'>
-                    <DrawerOverlay/>
-                    <DrawerContent>
-                        <DrawerCloseButton onClick={handleDrawerClose}/>
-                        <DrawerBody>
-                            <Image
-                                alt='logo_image'
-                                width={'120px'}
-                                height={'120px'}
-                                m='5rem auto'
-                                onClick={() => navigate('/')}
-                                borderRadius={'50px'}
-                                cursor={'pointer'}
-                                objectFit='contain'
-                                src={require(`../../assets/${data.logo_image}`)}
-                            />
-                            <VStack spacing="10" justify="center" align="stretch" display="flex">
-                                {data.navLinks.map((item) => (
-                                    <Button key={item} fontSize={'xl'} value={item} onClick={handleDrawerClick} 
-                                    variant='link' color='#25675d' _hover={{background: 'white', transition: '0.4s', color: 'black'}}>{item}</Button>
-                                ))}
-                            </VStack>
-                        </DrawerBody>
-                    </DrawerContent>
-                </Drawer>
-            </ChakraProvider>
+            <Drawer 
+                isOpen={showDrawer} 
+                placement='right'
+                isFullHeight 
+                size='full'
+                scrollBehavior='inside' 
+                closeOnEsc
+                closeOnOverlayClick
+                motionPreset='slideInTop'>
+                <DrawerOverlay/>
+                <DrawerContent>
+                    <DrawerCloseButton onClick={handleDrawerClose}/>
+                    <DrawerBody>
+                        <Image
+                            maxWidth={'200px'}
+                            maxHeight={'200px'}
+                            m='5rem auto'
+                            onClick={() => navigate('/')}
+                            borderRadius={'50px'}
+                            cursor={'pointer'}
+                            objectFit='contain'
+                            src={require(`../../assets/${data.logo_image}`)}
+                        />
+                        <VStack spacing="10" justify="center" align="stretch" display="flex">
+                            {data.navLinks.map((item) => (
+                                <Button key={item} size='lg' value={item} onClick={handleDrawerClick} 
+                                variant='link' color='secondary' _hover={{background: 'white', transition: '0.4s', color: 'black'}}>{item}</Button>
+                            ))}
+                        </VStack>
+                    </DrawerBody>
+                </DrawerContent>
+            </Drawer>
         </Box>        
     )
 }

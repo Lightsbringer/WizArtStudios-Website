@@ -1,7 +1,6 @@
 import React from 'react';
-import { Box, VStack, Button, Heading, Text, useBreakpointValue } from '@chakra-ui/react';
-import { FaRegCopyright } from 'react-icons/fa';
-import { Link as RouteLink } from 'react-router-dom';
+import { Box, VStack, Link, Heading, Text, useBreakpointValue } from '@chakra-ui/react';
+import { FaRegCopyright } from 'react-icons/fa'
 import './Footer.css';
 
 export default function Footer(props) {
@@ -32,31 +31,31 @@ export default function Footer(props) {
             <Heading fontFamily='heading' fontSize={['sm', 'md', 'lg', 'xl', 'xl']} color='primary'>
               Get Started
             </Heading>
-            <Button variant='link' p={1} color='secondary' fontFamily='body' fontSize={['xs', 'sm', 'lg', 'lg', 'lg']} onClick={(e) => scrollTo(e, portfolioData.footerLinks[0])}>
+            <Link color='secondary' fontFamily='body' fontSize={['xs', 'sm', 'lg', 'xl', 'xl']} onClick={(e) => scrollTo(e, portfolioData.footerLinks[0])}>
               {portfolioData.footerLinks[0]}
-            </Button>
-            <Button variant='link' p={1} color='secondary' fontFamily='body' fontSize={['xs', 'sm', 'lg', 'lg', 'lg']} onClick={(e) => scrollTo(e, portfolioData.footerLinks[1])}>
+            </Link>
+            <Link color='secondary' fontFamily='body' fontSize={['xs', 'sm', 'lg', 'xl', 'xl']} onClick={(e) => scrollTo(e, portfolioData.footerLinks[1])}>
               {portfolioData.footerLinks[1]}
-            </Button>
+            </Link>
           </VStack>
           <VStack verticalAlign={'top'}>
             <Heading fontFamily='heading' fontSize={['sm', 'md', 'lg', 'xl', 'xl']} color='primary'>
               Company
             </Heading>
-            <Button variant='link' p={1} color='secondary' fontFamily='body' fontSize={['xs', 'sm', 'lg', 'lg', 'lg']} onClick={(e) => scrollTo(e, portfolioData.footerLinks[2])}>
+            <Link color='secondary' fontFamily='body' fontSize={['xs', 'sm', 'lg', 'xl', 'xl']} onClick={(e) => scrollTo(e, portfolioData.footerLinks[2])}>
               {portfolioData.footerLinks[2]}
-            </Button>
-            <Button variant='link' p={1} color='secondary' fontFamily='body' fontSize={['xs', 'sm', 'lg', 'lg', 'lg']} onClick={(e) => scrollTo(e, portfolioData.footerLinks[3])}>
+            </Link>
+            <Link color='secondary' fontFamily='body' fontSize={['xs', 'sm', 'lg', 'xl', 'xl']} onClick={(e) => scrollTo(e, portfolioData.footerLinks[3])}>
               {portfolioData.footerLinks[3]}
-            </Button>
+            </Link>
           </VStack>
           <VStack verticalAlign={'top'}>
             <Heading fontFamily='heading' fontSize={['sm', 'md', 'lg', 'xl', 'xl']} color='primary'>
               Socials
             </Heading>
-            <Button variant='link' p={1} color='secondary' fontFamily='body' fontSize={['xs', 'sm', 'lg', 'lg', 'lg']} onClick={(e) => scrollTo(e, portfolioData.footerLinks[4])}>
+            <Link color='secondary' fontFamily='body' fontSize={['xs', 'sm', 'lg', 'xl', 'xl']} onClick={(e) => scrollTo(e, portfolioData.footerLinks[4])}>
               {portfolioData.footerLinks[4]}
-            </Button>
+            </Link>
           </VStack>
         </Box>
         <Box 
@@ -65,11 +64,9 @@ export default function Footer(props) {
           w={['sm', 'md', '2xl', '3xl', '4xl']}
           justifyContent={isMobile ? 'space-evenly' : 'space-between'} 
           flexWrap='wrap'
-          alignItems='flex-end'>
+          alignItems='flex-start'>
             <Text fontSize={['sm', 'md', 'lg', 'xl', 'xl']} align={'left'} color='secondary'><FaRegCopyright style={{display: 'inline'}}/> WizArt Studios. <br/> All Rights Reserved.</Text>
-            <RouteLink to={'/privacy-policy'}>
-              <Text fontSize={['sm', 'md', 'lg', 'xl', 'xl']} align={'left'} color='secondary'>Privacy Policy</Text>
-            </RouteLink>
+            <Link fontSize={['sm', 'md', 'lg', 'xl', 'xl']}  align={'left'} color='secondary'>Privacy Policy</Link>
         </Box>
       </Box>
     </footer>

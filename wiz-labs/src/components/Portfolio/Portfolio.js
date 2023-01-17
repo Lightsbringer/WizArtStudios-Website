@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import { Box, Flex, Text, Heading, Image,
   GridItem, 
   useBreakpointValue} from '@chakra-ui/react';
@@ -10,7 +10,7 @@ import './Portfolio.css';
 export default function Portfolio(props) {
   const portfolioData = props.data;
   const navigate = useNavigate();
-  const assets = ['Gem3.jpeg', 'NFT_3.jpeg', 'Custom_1.jpeg', 'Illustration_15.jpeg'];
+  const assets = ['artist_tears_2.jpg', 'NFT_2.jpg', 'Custom_1.jpg', 'Banner_1.jpg'];
   const isMobile = useBreakpointValue({base: true, sm: true, md: false, xl: false});
 
   useEffect(() => {
@@ -18,8 +18,7 @@ export default function Portfolio(props) {
   }, [])
 
   const handleGridClick = (value) => {
-    const trimmedValue = value.trim().toLowerCase().replace(/\s/g, "");
-    navigate(`/portfolio/${trimmedValue}`);
+    navigate(`/portfolio/${value}`);
   }
 
   return (
@@ -29,7 +28,7 @@ export default function Portfolio(props) {
       background='secondary'
       zIndex={'25'}
       position="relative"
-      height={['xl','3xl','4xl','5xl','6xl',]}
+      height={['3xl','4xl','6xl','6xl','6xl',]}
       max-width='2000px'
       alignItems='center'
       _after={{content:`""`, 
@@ -45,7 +44,7 @@ export default function Portfolio(props) {
       <Flex 
         display='flex' 
         justifyContent="space-evenly" 
-        w={['100%', '100%', '3xl', '6xl', '9xl']}
+        w={['100%', '2xl', '3xl', '6xl', '9xl']}
         flexDirection={'column'} 
         alignItems='center'
         h='100%'
@@ -53,7 +52,7 @@ export default function Portfolio(props) {
         margin='0 auto'
         overflowX={'auto'}>
         <Heading 
-          fontSize={['3xl', '3xl', '4xl', '4xl', '5xl']}
+          fontSize={['xl', 'xl', '2xl', '3xl', '4xl']}
           align={'left'} 
           color='primary'
           mb={4}>
@@ -61,8 +60,8 @@ export default function Portfolio(props) {
         </Heading>
         <Flex
           overflowX='auto'
+          height='80%'
           m='auto 1rem'
-          height={['60%', '60%', '60%','80%','80%']}
           display='flex' 
           flexWrap='nowrap'
           whiteSpace='nowrap'
@@ -70,7 +69,7 @@ export default function Portfolio(props) {
           {assets.map((asset, i) => (
           <Box 
               key={i}
-              minWidth={['50%','50%','50%','25%','25%',]}
+              minWidth={['100%','50%','50%','25%','25%',]}
               cursor='pointer'>
             <Box 
               className='image-container' 
@@ -80,10 +79,8 @@ export default function Portfolio(props) {
               m='0 0.5rem' 
               overflow='hidden'>
               <Image
-                alt={`portfolio_${i}`}
+                opacity={'1'}
                 height='100%'
-                margin={'0 auto'}
-                loading='lazy'
                 src={require(`../../assets/${asset}`)}
                 objectFit="cover"
                 className='image'
@@ -91,16 +88,18 @@ export default function Portfolio(props) {
                 />
               <Text 
                 className='shrink-border'
-                fontSize={['md', 'lg', 'xl', 'xl', '2xl']}
+                fontSize={['xl', 'xl', 'xl', 'xl', '2xl']}
                 position="absolute"
                 left="50%"
                 bottom="0"
-                width={isMobile ? '130px' : '60%'}
+                width='80%'
+                opacity={isMobile ? '1' : '0'}
                 color='black'
                 text-align='center'
                 transform = 'translate(-50%, -50%)'
+                animation='slidein 7s'
                 backgroundColor='white'
-                padding={isMobile ? '0.5rem' : '1rem'}
+                padding='1rem'
                 >
                 {portfolioData.workCategories[i]}
               </Text>

@@ -91,7 +91,7 @@ export default function TeamMember(props) {
         <React.Fragment>
             <div className={getContainerClassName} style={{ ...styles.container, ...containerStyle }}
                 onMouseEnter={onMouseHover} onMouseLeave={onMouseUnhover} >
-                <div className="react-card-flipper" style={styles.flipper}>
+                <div className="react-card-flipper" onClick={() => handleTeamMemberClick(value)} style={styles.flipper}>
                     <div className="react-card-front" style={styles.front}>
                         {getComponent(0)}
                     </div>
@@ -102,7 +102,8 @@ export default function TeamMember(props) {
                 <Text 
                   fontSize={['md', 'md', 'lg', 'lg', 'xl']} 
                   p='0.5rem' 
-                  color='secondary'
+                  color='secondary' 
+                  fontStyle={'italic; bold;'} 
                   _hover={{textDecoration: 'underline'}}>{value}</Text>
             </div>
         </React.Fragment>
