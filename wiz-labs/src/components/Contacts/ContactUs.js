@@ -17,10 +17,11 @@ import { Text,
     AlertIcon,
     AlertTitle,
     AlertDescription,
+    Heading,
     Slide,
     useBreakpointValue
 } from '@chakra-ui/react';
-import { FaDiscord, FaTwitter, FaLinkedin, FaInstagram, FaTiktok } from 'react-icons/fa';
+import { FaTwitter, FaLinkedin, FaInstagram, FaTiktok, FaBehance } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 import { emailJSConfig } from '../../emailkey';
 import Aos from 'aos';
@@ -78,36 +79,49 @@ export default function ContactUs(props) {
             zIndex={'20'}
             background='background'
             position="relative"
-            variant='div'
-            height={['7xl','6xl','4xl','4xl','4xl']}>
+            variant='div'>
             <Flex 
                 display='flex' 
                 w={['90%','80%','70%','60%','50%']}
                 h='100%'
-                m={'0 auto'}
+                m={'4rem auto'}
                 justifyContent="space-evenly" 
                 alignItems="center"
                 flexDirection={'column'}>
                 <VStack>
-                    <Text fontSize={['xl', 'lg', '3xl', '3xl', '3xl']}align={'left'} color='primary'>{portfolioData.contact_us_heading}</Text>
-                    <Text fontSize={['md', 'lg', 'xl', 'xl', 'xl']}  align={'left'} color='secondary'>{portfolioData.contact_us_description}</Text>
+                    <Heading fontSize={['3xl', '3xl', '4xl', '4xl', '5xl']} align={'center'} color='primary'>{portfolioData.contact_us_heading}</Heading>
+                    <Text fontSize={['md', 'xl', '2xl', '2xl', '2xl']}  align={'left'} color='secondary'>{portfolioData.contact_us_description}</Text>
                 </VStack>
                 <HStack display='flex' 
                     justifyContent="space-between" 
                     flexDirection={['column', 'column', 'row', 'row', 'row']} 
                     alignItems='center'>
                     <Flex 
-                        w={{sm: '90%', md:'40%', lg: '40%'}}
+                        w={[ '80%', '70%', '50%', '40%', '40%' ]}
                         display='flex'
                         justifyContent="center" 
                         flexDirection={'column'} 
                         alignItems='center'>
+                        {isMobile ? 
+                            <Image 
+                            alt='scroll_image'
+                            height='200px' 
+                            width='auto' 
+                            loading='lazy'
+                            objectFit='contain'
+                            position='relative'
+                            src={require(`../../assets/scroll.jpeg`)}/>
+                        : null}
                         <form onSubmit={submitEmail}>
                             <FormControl isRequired>
                                 <FormLabel mt='1rem' color='white'>First name</FormLabel>
                                 <Input 
                                     background='secondary' 
-                                    placeholder='First name' 
+                                    fontSize={'md'}
+                                    outline='none'
+                                    aria-label='name-field'
+                                    border='none'
+                                    placeholder='Enter name' 
                                     type='text' 
                                     onChange={event => setName(event.currentTarget.value)}
                                 />
@@ -115,15 +129,23 @@ export default function ContactUs(props) {
                                 <FormLabel mt='1rem' color='white'>Email</FormLabel>
                                 <Input 
                                     background='secondary' 
-                                    placeholder='Email' 
+                                    placeholder='Enter email' 
+                                    fontSize={'md'}
+                                    aria-label='email-field'
+                                    outline='none'
+                                    border='none'
                                     type='email' 
                                     onChange={event => setEmail(event.currentTarget.value)}
                                 />
 
-                                <FormLabel mt='1rem' color='white'>Description</FormLabel>
+                                <FormLabel mt='1rem' color='white'>How can we help?</FormLabel>
                                 <Textarea      
                                     background='secondary'   
-                                    resize={'none'}                   
+                                    resize={'none'}     
+                                    fontSize={'md'}  
+                                    aria-label='description-field'
+                                    outline='none'
+                                    border='none'
                                     placeholder='Tell us a bit about your inquiry'
                                     size='lg'
                                     onChange={event => setDescription(event.currentTarget.value)}
@@ -132,68 +154,76 @@ export default function ContactUs(props) {
                                 <Button 
                                     type='submit' 
                                     width='100%' 
+                                    outline='none'
+                                    border='none'
                                     mt={'2rem'} 
                                     background='primary' 
                                     color='white'
                                     _hover={{background: 'white', transition: '0.4s', color: 'black'}}>
-                                        {isSendingEmail ? <Spinner/> : 'Submit'}
+                                        {isSendingEmail ? <Spinner/> : 'SUBMIT'}
                                 </Button>
                             </FormControl>
                         </form>
                     </Flex>
                     <Box 
-                        w={{sm: '60%', md:'40%', lg: '40%'}}
+                        w={[ '80%', '70%', '50%', '40%', '40%' ]}
                         display='flex' 
                         flexDirection='column' 
+                        alignItems='center'
                         gap={5}
                         justifyContent={'space-evenly'}>
-                        <Image 
-                            height='300px' 
-                            width='auto' 
-                            objectFit='contain'
-                            position='relative  '
-                            borderRadius='100px' src={require(`../../assets/scroll.png`)}/>
-                        <Text fontSize={{sm: 'xl', md:'xl', lg: 'xl', xl: '3xl'}} align={'center'} color='primary'>Schedule a call NOW</Text>
-                        <Text fontSize={{sm: 'md', md:'md', lg: 'md', xl: 'xl'}}  align={'left'} color='secondary'>Book an appointment with our team through Calendly. We will inform you when your request is successfully processed on our side and accepted</Text>
+                        {!isMobile ?
+                            <Image 
+                                alt='scroll_image'
+                                height='300px' 
+                                width='auto' 
+                                objectFit='contain'
+                                loading='lazy'
+                                position='relative'
+                                src={require(`../../assets/scroll.jpeg`)}/>
+                        : null}
+                        <Text width={'auto'} fontSize={['md', 'xl', '2xl', '2xl', '2xl']} mt={10} align={'left'} color='secondary'>Book an appointment with our team through Calendly. We will inform you when your request is successfully processed on our side and accepted</Text>
                         <Box alignContent='center' width='100%'>
+                        <a href={portfolioData.calendly} target="_blank" rel="noopener noreferrer">
                             <Button 
-                                fontSize='sm' 
                                 background='primary' 
+                                size={'lg'}
                                 color='white' 
                                 whiteSpace={'wrap'}
                                 _hover={{background: 'white', transition: '0.4s', color: 'black'}}>
-                                <a href='https://calendly.com/wizard_/'>{`Book an appointment with Calendly`}</a>
+                                    Let's create together
                             </Button>
+                        </a>
                         </Box>
-                        <Box>
-                            <Text fontSize={'md'}  align={'center'} color='secondary'>Follow us on social media</Text>
+                        <Box pt={3}>
+                            <Text fontSize={['md', 'lg', 'lg', 'xl', 'xl']} align={'center'} mb={3} color='secondary'>Check out our social media</Text>
                             <ButtonGroup>
                                 <IconButton
-                                    variant="ghost"
+                                    variant="link"
                                     fontSize="large"
-                                    onClick={() => handleSocialMediaClick(portfolioData.officialLinks.discord)}
-                                    icon={<FaDiscord fontSize="lg" color='white'/>}
-                                    aria-label="Open Discord"/>
+                                    onClick={() => handleSocialMediaClick(portfolioData.officialLinks.behance)}
+                                    icon={<FaBehance fontSize="lg" color='white'/>}
+                                    aria-label="Open Behance"/>
                                 <IconButton
-                                    variant="ghost"
+                                    variant="link"
                                     fontSize="large"
                                     onClick={() => handleSocialMediaClick(portfolioData.officialLinks.twitter)}
                                     icon={<FaTwitter fontSize="lg" color='white'/>}
                                     aria-label="Open Twitter"/>
                                 <IconButton
-                                    variant="ghost"
+                                    variant="link"
                                     fontSize="large"
                                     onClick={() => handleSocialMediaClick(portfolioData.officialLinks.linkedin)}
                                     icon={<FaLinkedin fontSize="lg" color='white'/>}
                                     aria-label="Open Linkedin"/>
                                 <IconButton
-                                    variant="ghost"
+                                    variant="link"
                                     fontSize="large"
                                     onClick={() => handleSocialMediaClick(portfolioData.officialLinks.instagram)}
                                     icon={<FaInstagram fontSize="lg" color='white'/>}
                                     aria-label="Open Instagram"/>
                                 <IconButton
-                                    variant="ghost"
+                                    variant="link"
                                     fontSize="large"
                                     onClick={() => handleSocialMediaClick(portfolioData.officialLinks.tiktok)}
                                     icon={<FaTiktok fontSize="lg" color='white'/>}

@@ -49,9 +49,11 @@ export default function TeamMemberPage(props) {
                     flexDirection={{base: 'column', sm: 'column', md: 'column', lg: 'row'}}>
                     <VStack width={{base: '70%', lg: '30%'}} justifyContent='space-evenly'>
                         <Image
+                            alt='team_member'
                             m={'0 auto'}
                             borderRadius={'50px'}
                             cursor={'pointer'}
+                            loading='lazy'
                             objectFit='contain'
                             src={require(`../../assets/${currentTeamMember.photoUrl}`)}
                             mb={'3rem'}

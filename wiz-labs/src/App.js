@@ -5,13 +5,12 @@ import PortfolioPage from './components/Portfolio/PortfolioPage';
 import Portfolio from './components/Portfolio/Portfolio';
 import Navigation from './components/Navigation/Navigation';
 import Team from './components/Team/Team';
-import TeamMemberPage from './components/Team/TeamMemberPage';
 import portfolioData from './portfolio_data';
-import websiteMedia from './websiteAssetData.json';
 import ImageContextProvider from './services/imageContext';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import ScrollToTop from './components/Scrollbar/ScrollToTop';
 import Footer from './components/Footer/Footer';
+import PrivacyPolicy from './components/Footer/PrivacyPolicy';
 import NotFoundPage from './components/NotFound/NotFoundPage';
 import Services from './components/Services/Services';
 import ContactUs from './components/Contacts/ContactUs';
@@ -21,53 +20,63 @@ import './App.css';
 
 export const App = () => {
   const [loading, setLoading] = useState(true);
-  const [loaderError, setLoaderError] = useState(false);
+  // const [loaderError, setLoaderError] = useState(false);
   const homeRef = useRef(null);
   const servicesRef = useRef(null);
   const teamRef = useRef(null);
   const portfolioRef = useRef(null);
   const contactRef = useRef(null);
   const { pathname } = useLocation();
-  const [images, setImages] = useState([]);
+  // const [images, setImages] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  // useEffect(() => {
-  //   if(loading) {
-  //     // this simulates an async action, after which the component will render the content
-  //     demoAsyncCall().then(() => setLoading(false));
-  //   }
-  // }, [loading])
-
   useEffect(() => {
     if(loading) {
-      preloadImages() 
-        .then((response) => setLoading(false))
-        .catch((error) => setLoaderError(true));
+      // this simulates an async action, after which the component will render the content
+      demoAsyncCall().then(() => setLoading(false));
     }
-  }, [loading]);
+  }, [loading])
 
-  const preloadImages = async () => {
-    const imagePromises = websiteMedia.websiteMedia.map((fileUrl) => {
-      return new Promise((resolve, reject) => {
-        const image = new Image();
+  // useEffect(() => {
+  //   if(loading) {
+  //     setTimeout(() => {
+  //       preloadImages() 
+  //         .then((response) => setLoading(false))
+  //         .catch((error) => setLoaderError(true));
+  //       setLoading(false);
+  //     }, 2000)
+  //   }
+  // }, [loading]);
 
-        image.src = `./assets/${fileUrl}`;
-        image.crossOrigin='anonymous';
-        image.onload = resolve(image);
-        image.onerror = reject();
-      })
-    });
+  // const preloadImages = async () => {
+  //   const imagePromises = websiteMedia.websiteMedia.map((fileUrl) => {
+  //     return new Promise((resolve, reject) => {
+  //       // <Image
+  //       //   width={'auto'}
+  //       //   objectFit='contain'
+  //       //   src={require(`./assets/${fileUrl}`)}
+  //       //   onLoad={() => resolve(fileUrl)}
+  //       //   onError={() => reject(fileUrl)}
+  //       // />
+  //       const image = new Image();
 
-    await Promise.all(imagePromises)
-      .then((images) => {
-        setImages(images);
-      }).catch((err) => {
-        setImages([]);
-      });
-}
+  //       image.src = `./assets/${fileUrl}`;
+  //       image.crossOrigin='anonymous';
+  //       image.onload = resolve(image);
+  //       image.onerror = reject();
+  //   })
+  //   });
+
+  //   await Promise.all(imagePromises)
+  //     .then((images) => {
+  //       setImages(images);
+  //     }).catch((err) => {
+  //       setImages([]);
+  //     });
+  // }
 
   // const createImageRepository = () => {    
   //   return new Promise((resolve, reject) => {
@@ -82,9 +91,9 @@ export const App = () => {
   //   })
   // }
 
-  // const demoAsyncCall = () => {
-  //   return new Promise((resolve) => setTimeout(() => resolve(), 2500));
-  // }
+  const demoAsyncCall = () => {
+    return new Promise((resolve) => setTimeout(() => resolve(), 2500));
+  }
 
   const scrollTo = (event, stringRoute = '') => {
     event.preventDefault();
@@ -117,51 +126,41 @@ export const App = () => {
   }
 
   return (
-    <ImageContextProvider value={images}>
-      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+    // <ImageContextProvider value={images}>
+      // <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <div className="App">
-        {      
-          loading ? 
-          <LoadingComponent data={portfolioData}/>
-          :
-          <Navigation data={portfolioData} scrollTo={scrollTo}/>
-        }
         <Routes>
           <Route exact path='/' element={
+            <React.Fragment>
+                <LoadingComponent data={portfolioData} loading={loading}/>
+                <Navigation data={portfolioData} scrollTo={scrollTo}/>
+                <Home innerRef={homeRef} scrollTo={scrollTo} data={portfolioData}/>
+                <Services innerRef={servicesRef} data={portfolioData}/>
+                <Team innerRef={teamRef} data={portfolioData}/>
+                <Portfolio innerRef={portfolioRef} data={portfolioData}/>
+                <ContactUs innerRef={contactRef} data={portfolioData}/>
+                <ScrollToTop/>
+            </React.Fragment>
+          }/>
+          {/* <Route exact path='/team-member/:name' element={<TeamMemberPage data={portfolioData}/>}/> */}
+          <Route exact path='/portfolio/:name' element={
             <>
-              {
-                  loading ? 
-                    null
-                  :
-                  <React.Fragment>
-                      <Home innerRef={homeRef} scrollTo={scrollTo} data={portfolioData}/>
-                      <Services innerRef={servicesRef} data={portfolioData}/>
-                      <Team innerRef={teamRef} data={portfolioData}/>
-                      <Portfolio innerRef={portfolioRef} data={portfolioData}/>
-                      <ContactUs innerRef={contactRef} data={portfolioData}/>
-                      <ScrollToTop/>
-                  </React.Fragment>
-              }
+              <Navigation data={portfolioData} scrollTo={scrollTo}/>
+              <PortfolioPage data={portfolioData}/>
             </>
           }/>
-          {/* <Route path='/services' element={<Services data={portfolioData}/>}/> */}
-          <Route exact path='/team-member/:name' element={<TeamMemberPage data={portfolioData}/>}/>
-          <Route exact path='/portfolio/:name' element={<PortfolioPage data={portfolioData}/>}/>
+          <Route exact path='/privacy-policy' element={
+            <>
+              <Navigation data={portfolioData} scrollTo={scrollTo}/>
+              <PrivacyPolicy/>
+            </>
+          }/>          
           <Route path='*' element={<NotFoundPage/>}/>
         </Routes>
         {
-          loading ? 
-            null 
-          : 
-            <Footer data={portfolioData} scrollTo={scrollTo}/>
+          <Footer data={portfolioData} scrollTo={scrollTo}/>
         }
-        {/* 
-        ALSO IMPLEMENT THE COLOR-THIEF AND LIVE CHAT
-        Add LOADER ON TOP THAT SHOWS HOW MUCH THE USER HAS SCROLLED THROUGH
-        MODIFY SCROLLBAR
-        <Carousel data={portfolioData}/>
-        */}
       </div>
-    </ImageContextProvider>
+    // </ImageContextProvider>
   );
 }

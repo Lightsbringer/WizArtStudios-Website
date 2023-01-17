@@ -1,14 +1,11 @@
 {
-    "background_image_desktop": "background_home.jpg",
-    "background_image_tablet": "background_home.jpg",
-    "background_image_mobile": "background_home.jpg",
     "logo_image": "logo.png",
     "logo_tab": "",
     "imagebaseurl":"https://rbhatia46.github.io/",
     "name": "WizArt Studios",
-    "motto": "Have you ever stumbled upon an idea and been unable to process it in terms of an image?",
-    "hook": "Well, we got a team of professional artists who have helped a lot of such ideas turn into reality.",
-    "team_description": "The team is composed of talented, hardworking and well-experienced apprentices who have been in the NFT space for far too long to understand what attracts an average Solana Investor, the result of which we have won multiple art contests (Communi3 being the biggest) and made an art piece for Elixir as well. Working with us will ensure that you will align all the ideas flowing through your head and choose the right path for your upcoming product/service. A few magic words and... POOF. Voilà, there it is!",
+    "motto": "Let us be the magic that your team needs.",
+    "hook": "Build your magical idea with the help of our skilled digital artists, marketing specialists and web developers. Here we strive to turn our customer's ideas into reality. Let yours be the next one!",
+    "team_description": "The team is composed of talented, hardworking and well-experienced wizards, who have been in the NFT space for far too long to understand what attracts Investors. Working with us will ensure that you will align all the ideas flowing through your head and choose the right path for your upcoming product/service. A few magic words and... POOF. Voilà, there it is!",
     "skills_description": "We offer everything an NFT Project needs to attract potential investors. If at any point in time you feel overwhelmed by looking at so many options, don't worry. Take a long breath and book an appointment as the special wizardry will only happen there.",
     "routes": [ "", "/our-services", "/team", "portfolio", "contact-us" ],
     "contact_us_heading": "We would love to hear more from you",
@@ -27,16 +24,45 @@
       "Contact Us"
     ],
     "workCategories": [
-      "Logos",
-      "NFT Projects",
+      "Hidden Gems",
+      "1 of 1 Art",
       "Fanart",
-      "Custom requests"
+      "Illustrations"
     ],
     "floatingParticleImages": ["bong.png", "wand.png", "crystalball.png"],
+    "calendly": "https://calendly.com/wizard_/",
     "theTeam": [
       {
+        "name": "Gabriela",
+        "short_description": "The canvas moves under her hand, not the other way around",
+        "role": "Lead Artist",
+        "description": "Hi I'm Gabriela! I've been artist since I can remember. I like to experiment with different type of art styles and mediums. I'm a cat lover and owner and I like to watch a lot of anime.",
+        "discord": "",
+        "twitter": "",
+        "linkedin": "",
+        "instagram": "",
+        "tiktok": "",
+        "calendly": "https://calendly.com/wizard_/",
+        "skills": "",
+        "photoUrl": "gabriela.jpeg"
+      },
+      {
+        "name": "Turtle",
+        "short_description": "Doing art and consuming potions all the time",
+        "role": "Lead Artist",
+        "description": "The coffee+cigarette guy that makes art which is somewhat decent, also I love cats.",
+        "discord": "",
+        "twitter": "",
+        "linkedin": "",
+        "instagram": "",
+        "tiktok": "",
+        "calendly": "https://calendly.com/wizard_/",
+        "skills": "",
+        "photoUrl": "turtle.jpeg"
+      },
+      {
         "name": "Kamelita",
-        "short_description": "Kamelita",
+        "short_description": "Our dedicated video editor and content creator",
         "role": "Social Media Manager, Content Creator",
         "description": "TODO",
         "discord": "",
@@ -46,35 +72,7 @@
         "tiktok": "",
         "calendly": "https://calendly.com/wizard_/",
         "skills": "",
-        "photoUrl": "kamelita.jpg"
-      },
-      {
-        "name": "Turtle",
-        "short_description": "Doing art and consuming potions all the time",
-        "role": "Artist",
-        "description": "The coffee+cigarette guy that makes art which is somewhat decent, also I love cats.",
-        "discord": "",
-        "twitter": "",
-        "linkedin": "",
-        "instagram": "",
-        "tiktok": "",
-        "calendly": "https://calendly.com/wizard_/",
-        "skills": "",
-        "photoUrl": "turtle.jpg"
-      },
-      {
-        "name": "Gabriela",
-        "short_description": "The canvas moves under her hand, not the other way around",
-        "role": "Artist",
-        "description": "Hi I'm Gabriela! I've been artist since I can remember. I like to experiment with different type of art styles and mediums. I'm a cat lover and owner and I like to watch a lot of anime.",
-        "discord": "",
-        "twitter": "",
-        "linkedin": "",
-        "instagram": "",
-        "tiktok": "",
-        "calendly": "https://calendly.com/wizard_/",
-        "skills": "",
-        "photoUrl": "gabriela.jpg"
+        "photoUrl": "kamelita.jpeg"
       },
       {
         "name": "Kriko",
@@ -88,7 +86,7 @@
         "tiktok": "",
         "calendly": "https://calendly.com/kriko-calls",
         "skills": "HTML; CSS; Javascript and JS Frameworks(React, Angular); JQuery; NodeJS; Typescript; Redux/Flux; Knowledge of AWS Services; ElasticSearch Stack; Databases - PostgreSQL, SQL Server, MongoDB, Sequilize, Firebase; REST API",
-        "photoUrl": "kriko.jpg"
+        "photoUrl": "kriko.jpeg"
       },
       {
         "name": "Amoros",
@@ -102,7 +100,7 @@
         "tiktok": "",
         "calendly": "https://calendly.com/wizard_/",
         "skills": "",
-        "photoUrl": "amoros.jpg"
+        "photoUrl": "amoros.jpeg"
       },
       {
         "name": "Wizard",
@@ -116,93 +114,195 @@
         "tiktok": "",
         "calendly": "https://calendly.com/wizard_/",
         "skills": "",
-        "photoUrl": "wizard.jpg"
+        "photoUrl": "wizard.jpeg"
       }
     ],
     "officialLinks": {
-      "discord": "https://discord.com/",
+      "behance": "https://www.behance.net/wizartstudios",
       "twitter": "https://twitter.com/WizArt_Studios",
-      "linkedin": "https://www.linkedin.com/in/wizart-studios-45a6a824a/",
+      "linkedin": "https://www.linkedin.com/company/wizartstudios/",
       "instagram": "https://www.instagram.com/wizartstudios/",
       "tiktok": "https://www.tiktok.com/@wizartstudios"
     },
     "services": [
       {
         "type": "NFT Art",
-        "image": "nftart.png",
+        "image": "nftart.jpeg",
         "description": "Provide the vision to our artists and they will work with you to develop and design your idea into a lucrative NFT. Yeah, that's all they need!"
       },
       {
         "type": "Custom Art",
-        "image": "customart.png",
-        "description": "In this Web3 world, how you represent yourself matters a lot. And your socials is your first encounter with the Web3 World. Want to look your best? Our Artists will design a custom 1/1 PFP and Banner and Art for you according to your taste"
+        "image": "customart.jpeg",
+        "description": "WizArt Studios makes it simple to design, maintain, store, and distribute video and illustration assests for your needs."
       },
       {
         "type": "Social Media Assets",
-        "image": "socialmediaasset.png",
-        "description": "WizArt Studios makes it simple to design, maintain, store, and distribute video and illustration assests for your social media."
+        "image": "socialmediaasset.jpeg",
+        "description": "In this world, how you represent yourself matters a lot. And your socials is your first encounter with the World.  Whether you need more content for your brand or your personal profile we got you covered!"
       },
       {
         "type": "Branding Identity",
-        "image": "branding.png",
-        "quote": "Your brand is the single most important investment you can make in your business- Steve Forbes",
-        "description": "We can't argue with that, can we? Since \"THE BRAND\" of your project is so important to you, we will provide you with the best Branding Assets which suit your vision."
+        "image": "branding.jpeg",
+        "quote": "Your brand is the single most important investment you can make in your business - Steve Forbes",
+        "description": "We can't argue with that, can we? <br> Since \"THE BRAND\" of your project is so important to you, we will provide you with the best Branding Assets which suit your vision."
       }
     ],
-    "portfolio":{
-      "logos": [
-        {
-          "name":"NFA logo",
-          "description":"NON Financial Advisors is a project that we executed completely on our own and it is yet to be launched. The artwork is inspired by the 80s and 90s, trying to envision a more retro art approach. For them, we created unique logo and artwork used for their marketing campaigns.",
-          "imgurl":"NFALogo.jpg"
-        }
-      ],
-      "nftprojects": [
-        {
-          "name":"Good Mood Dudes",
-          "description":"Good Mood Dudes is a Web3 retail experience NFT backed by a real life product: The Ayoka drink. We have worked with them on multiple sketches some of which are yet to be released on their socials!",
-          "imgurl":"GoodMoodDudes.jpg"
-        },
-        {
-          "name":"NFA",
-          "description":"NON Financial Advisors is a project that we executed completely on our own and it is yet to be launched. The artwork is inspired by the 80s and 90s, trying to envision a more retro art approach. Along with the logo, we created NFT artworks for their upcoming project launch.",
-          "imgurl":"NFA_art.jpg"
-        },
-        {
-          "name":"FastFoodies",
-          "description":"Those are some sneak peaks from a collection called FastFoodies, which unfortunately did not get to see light, because the founders vanished into thin air.",  
-          "imgurl":"FastFoodies.png"
-        }
-      ],
-      "fanart": [
-        {
-          "name":"The Artist Tears collection",
-          "description":"A wonderful collection of all the artist tears collected in a beautiful marketable transparent milk carton to display for the world to see. Yes, these are our tears indeed. Keep in mind, they are magical. So be cautious when using.",
-          "imgurl":"artist_tears_1.jpg"
-        },
-        {
-          "name":"Tigers",
-          "description":"Tigers NFT project fanart mixed with Pokemon vibes to bring back the old memories before the big digitalization began and everyone was just playing Pokemon on Nintendo and Gameboy.",
-          "imgurl":"NFT_1.jpg"
-        },
-        {
-          "name":"Primates",
-          "description":"Primates NFT project fanart created to flex on all them young bloods. You get what I'm sayin cuuz?",  
-          "imgurl":"NFT_3.jpg"
-        },
-        {
-          "name":"Asset Bender",
-          "description":"Twitter banner for AssetBender to help them spread Web3 for the Masses and obtain control of all the elements under their will.",  
-          "imgurl":"Banner_1.jpg"
-        }
-      ],
-      "customrequests": [
-        {
-          "name":"MetaTattooClub",
-          "description":"MetaTatooClub is an NFT project situated in the world of tattoo art providing wide variety of utility. WizArt Studios created an illustration displaying their whole roadmap in an eye-catching and creative way. They are big tattoos maxis, and numerours team members from their company are quite popular in real life as tatoo artists. One of them did tatoos for Post Malone. Isn't that cool?",
-          "imgurl":"MetaTattooClub.jpg"
-        }
-      ]
+    "portfolio": {
+      "galleries": {
+        "illustrations": [
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Illustration_1.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Illustration_2.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Illustration_3.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Illustration_5.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Illustration_6.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Illustration_7.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Illustration_8.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Illustration_9.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Illustration_10.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Illustration_11.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Illustration_12.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Illustration_13.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Illustration_15.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Illustration_16.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Illustration_17.jpeg"
+          }
+        ],
+        "hiddengems": [
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Gem1.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Gem2.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Gem3.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Gem4.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Gem5.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Gem6.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Gem7.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Gem8.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Gem9.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Gem10.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Gem11.jpeg"
+          },
+          {
+            "header":"View Fullscreen",
+            "imgurl":"Gem12.jpeg"
+          }
+        ]
+      },
+      "projects": {
+        "1of1art": [
+          {
+            "name":"Good Mood Dudes",
+            "description":"Good Mood Dudes is a Web3 retail experience NFT backed by a real life product: The Ayoka drink. We have worked with them on multiple sketches some of which are yet to be released on their socials!",
+            "imgurl":"GoodMoodDudes.jpeg"
+          },
+          {
+            "name":"NFA",
+            "description":"NON Financial Advisors is a project that we executed completely on our own and it is yet to be launched. The artwork is inspired by the 80s and 90s, trying to envision a more retro art approach. Along with the logo, we created NFT artworks for their upcoming project launch.",
+            "imgurl":"NFA_art.jpeg"
+          },
+          {
+            "name":"FastFoodies",
+            "description":"Those are some sneak peaks from a collection called FastFoodies, which unfortunately did not get to see light, because the founders vanished into thin air.",  
+            "imgurl":"FastFoodies.jpeg"
+          }
+        ],
+        "fanart": [
+          {
+            "name":"The Artist Tears collection",
+            "description":"A wonderful collection of all the artist tears collected in a beautiful marketable transparent milk carton to display for the world to see. Yes, these are our tears indeed. Keep in mind, they are magical. So be cautious when using.",
+            "imgurl":"artist_tears.jpeg"
+          },
+          {
+            "name":"Tigers",
+            "description":"Tigers NFT project fanart mixed with Pokemon vibes to bring back the old memories before the big digitalization began and everyone was just playing Pokemon on Nintendo and Gameboy.",
+            "imgurl":"NFT_1.jpeg"
+          },
+          {
+            "name":"Primates",
+            "description":"Primates NFT project fanart created to flex on all them young bloods. You get what I'm sayin cuuz?",  
+            "imgurl":"NFT_3.jpeg"
+          },
+          {
+            "name":"Asset Bender",
+            "description":"Twitter banner for AssetBender to help them spread Web3 for the Masses and obtain control of all the elements under their will.",  
+            "imgurl":"Banner_1.jpeg"
+          }
+        ]
+      }      
     }
   }
   
