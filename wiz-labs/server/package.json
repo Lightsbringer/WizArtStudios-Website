@@ -10,7 +10,7 @@
     "test": "jest",
     "lint": "eslint ."
   },
-  "author": "Kristian Kirilov",
+  "author": "Atanas Hristov",
   "license": "MIT",
   "dependencies": {
     "@types/cors": "^2.8.12",

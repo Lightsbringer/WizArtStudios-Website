@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import { 
     Text, 
     Stack, 
@@ -19,28 +19,25 @@ export default function Home(props) {
     const portfolioData = props.data;
     const windowHeight = window.innerHeight;
     const isMobile = useBreakpointValue({base: true, sm: true, md: true, lg: false, xl: false});
-    const floatingParticles = portfolioData.floatingParticleImages;
-    const { getImageByURL } = useContext(ImageContext);
-    const [visibility, setVisibility] = useState('hidden');
+    // const floatingParticles = portfolioData.floatingParticleImages;
 
-
-    function shuffle(array) {
-        let currentIndex = array.length,  randomIndex;
+    // function shuffle(array) {
+    //     let currentIndex = array.length,  randomIndex;
       
-        // While there remain elements to shuffle.
-        while (currentIndex !== 0) {
+    //     // While there remain elements to shuffle.
+    //     while (currentIndex !== 0) {
       
-          // Pick a remaining element.
-          randomIndex = Math.floor(Math.random() * currentIndex);
-          currentIndex--;
+    //       // Pick a remaining element.
+    //       randomIndex = Math.floor(Math.random() * currentIndex);
+    //       currentIndex--;
       
-          // And swap it with the current element.
-          [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex], array[currentIndex]];
-        }
+    //       // And swap it with the current element.
+    //       [array[currentIndex], array[randomIndex]] = [
+    //         array[randomIndex], array[currentIndex]];
+    //     }
       
-        return array;
-    }
+    //     return array;
+    // }
 
     return (
         <Box 
@@ -49,7 +46,7 @@ export default function Home(props) {
             display={'flex'}
             zIndex={21}
             position="relative"
-            height={isMobile ? 80 * windowHeight / 100 : 85 * windowHeight / 100}
+            height={isMobile ? 'auto' : 85 * windowHeight / 100}
             alignItems={'center'}
             justifyContent='space-evenly'
             _after={{content:`""`, 
@@ -65,39 +62,35 @@ export default function Home(props) {
             <Flex 
                 display='flex' 
                 w={['100%', 'xl', '3xl', '5xl', '6xl']}
-                m={'0 auto'}
+                m={'2rem auto'}
                 justifyContent="space-between" 
-                flexDirection={isMobile ? 'column-reverse' : 'row'}
+                flexDirection={isMobile ? 'column' : 'row'}
                 alignItems='center'>
-                <Stack spacing={isMobile ? 1 : 10} width={isMobile ? '80%' : '60%'} m='0 auto'>
-                    <Heading fontSize={['md', 'lg', '2xl', '3xl', '4xl']} align={'left'} color='primary' mb={4}>{portfolioData.motto}</Heading>
-                    <Text fontSize={['sm', 'md', 'xl', 'xl', '2xl']}  align={'left'} color='secondary'>{portfolioData.hook}</Text>
+                <Stack spacing={isMobile ? 1 : 10} width={isMobile ? '90%' : '60%'} m='4rem auto'>
+                    <Heading fontSize={['3xl', '3xl', '4xl', '4xl', '5xl']} align={'left'} color='primary' mb={4}>{portfolioData.motto}</Heading>
+                    <Text fontSize={['xl', 'xl', '2xl', '2xl', '2xl']}  align={'left'} color='secondary'>{portfolioData.hook}</Text>
                     <Box alignContent={'left'}>
                         <Button 
                             background='primary' 
                             color='white'
-                            size={isMobile ? 'sm': 'lg'}
-                            mt={isMobile ? '1rem' : '2rem'}
+                            size={isMobile ? 'md': 'lg'}
+                            mt={'2rem'}
                             onClick={(e) => scrollTo(e, 'services')}
                             _hover={{background: 'white', transition: '0.4s', color: 'black'}}>
                                 Learn More
                         </Button>
                     </Box>
                 </Stack>
-                <Stack width={isMobile ? '65%' : '40%'} m='0 auto'>
+                <Stack width={isMobile ? '65%' : '50%'} m='0 auto'>
                     <Floating enabled={true}>
                         <Image
-                            width={'auto'}
                             objectFit='contain'
-                            visibility={visibility}
-                            transition={'ease-in-out'}
-                            transitionDuration={'0.5s'}
-                            src={require(`../assets/wiz.png`)}
-                            onLoad={() => setVisibility('visible')}
+                            priority="true"
+                            alt='home_image'
+                            src={require(`../assets/wiz.jpeg`)}
                         />
-                    </Floating>
+                    </Floating>                
                 </Stack>
-                
             </Flex>
             {/* {shuffle(floatingParticles).map((particle, index) => (
                 <FloatingParticle key={index} data={portfolioData} particle={particle} indexAnimation={index+1}/>
